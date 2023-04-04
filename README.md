@@ -1,3 +1,14 @@
+## Notes
+- Use node 18
+- Use https://flowbite.com/ for tailwind reference
+
+
+## Folder structure
+- /src/pages - its behaves just as route.
+- /src/container - it will hold complex pages, features. It will import components from /src/component
+- /src/component - it will hold UI components like button, tables, complex reusable components also like tabs.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
