@@ -5,7 +5,7 @@ import React from "react";
 
 const index = () => {
   return (
-    <BasePage seo={{ title: "Title of mu page", pathname: "/" }}>
+    <BasePage seo={{ title: "EmiNinja | Emi Calculators", pathname: "/" }}>
       <SIPCalculator></SIPCalculator>
       <Faq></Faq>
     </BasePage>
