@@ -1,4 +1,8 @@
 import { useState } from "react";
+import 'chartist/dist/index.css';
+import { PieChart, PieChartOptions, ResponsiveOptions } from 'chartist';
+
+
 
 export default function SIPCalculator() {
   const [principal, setPrincipal] = useState(0);
@@ -6,6 +10,15 @@ export default function SIPCalculator() {
   const [time, setTime] = useState(0);
   const [result, setResult] = useState("");
   const [totalReturns, setTotalReturns] = useState("");
+
+  const chartData = {
+    labels: ['Invested Amount', 'Est. Returns'],
+    series: []
+  };
+
+  const options: PieChartOptions = {
+    labelInterpolationFnc: value => String(value)[0]
+  };
 
   const formatOutputAmout = (amount) => {
     return amount.toString().split('.')[0].length > 3 ? amount.toString().substring(0,amount.toString().split('.')[0].length-3).replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + amount.toString().substring(amount.toString().split('.')[0].length-3): amount.toString();
@@ -44,6 +57,9 @@ export default function SIPCalculator() {
     console.log("sip data", data);
     setResult("₹"+data.maturityValue);
     setTotalReturns("₹"+data.totalReturns);
+    chartData.series.push(data.totalInvestment);
+    chartData.series.push(data.totalReturns)
+    new PieChart('#chart', chartData, options);
   };
 
   return (
@@ -104,6 +120,7 @@ export default function SIPCalculator() {
           Calculate
         </button>
       </form>
+      <div id="chart" className="h-2/4"></div>
       <div className="px-6 py-4">
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
