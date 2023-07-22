@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+body {
+  @apply bg-slate-900;
+}
+.container > div {
+  @apply w-full;
+}
+
+.label {
+  @apply text-gray-100 tracking-wide;
+}
+
+.label-optional {
+  @apply text-sm text-gray-300;
+}
+
+.input-group {
+  @apply flex flex-col gap-3 mb-8;
+}
+
+.input-field {
+  @apply px-3 py-3 rounded-md w-full flex pr-7 outline-none ring-1 ring-gray-500 font-medium focus:ring-2 focus:ring-inset focus:ring-blue-500;
+}
+
+.card {
+  @apply bg-slate-900/40 backdrop-filter rounded-md p-5 text-white bg-gray-400 bg-clip-padding backdrop-blur-lg bg-opacity-10 border border-slate-600;
+}

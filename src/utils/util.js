@@ -4,7 +4,7 @@ function calculateSIP(principal, interestRate, investmentPeriod) {
   let futureValue = 0;
   debugger;
   for (let i = 1; i <= parseInt(investmentPeriod); i++) {
-    let temp  = 0;
+    let temp = 0;
     temp = (futureValue + parseInt(principal)) * (1 + monthlyInterestRate);
     futureValue = futureValue + temp;
   }
