@@ -5,9 +5,9 @@ import Container from "../Container";
 import FormInput from "../FormInput";
 
 const SipCalculator = () => {
-  const [loanAmount, setLoanAmount] = useState<number | undefined>();
-  const [interestRate, setInterestRate] = useState<number | undefined>();
-  const [tenure, setTenure] = useState<number | undefined>();
+  const [loanAmount, setLoanAmount] = useState<number | undefined>(100000);
+  const [interestRate, setInterestRate] = useState<number | undefined>(8.5);
+  const [tenure, setTenure] = useState<number | undefined>(10);
   const [emi, setEMI] = useState<number>(0);
   const [totalLoanAmount, setTotalLoanAmount] = useState<number>();
   const [totalInterest, setTotalInterest] = useState<number>();
@@ -32,14 +32,12 @@ const SipCalculator = () => {
       interestRate !== undefined &&
       tenure !== undefined
     ) {
-      const emiAmount = Math.round(
-        calculateEMI(loanAmount, interestRate, tenure)
-      );
+      const emiAmount = calculateEMI(loanAmount, interestRate, tenure);
       const totalPayableAmount = emiAmount * tenure * 12;
       const totalInterest = totalPayableAmount - loanAmount;
-      setEMI(emiAmount);
-      setTotalLoanAmount(totalPayableAmount);
-      setTotalInterest(totalInterest);
+      setEMI(Math.round(emiAmount));
+      setTotalLoanAmount(Math.round(totalPayableAmount));
+      setTotalInterest(Math.round(totalInterest));
     }
   };
 
