@@ -22,7 +22,7 @@ export default function Header({}: IHeaderProps) {
     { name: "Contact", url: "/contact" },
   ];
   return (
-    <header className="flex sticky top-0 z-50 bg-white border-b border-gray-700 dark:bg-gray-900">
+    <header className="header">
       <Container>
         <nav className="flex flex-wrap items-center justify-between py-5 w-full">
           {/* Logo */}
@@ -64,18 +64,20 @@ export default function Header({}: IHeaderProps) {
 
           {/* Menu */}
           <div
-            className={`w-full transition md:w-auto pt-4 md:pt-0 ${
-              isOpen ? "flex h-auto" : "hidden md:flex"
+            className={`nav-collapse ${
+              isOpen ? "max-md:scale-y-100" : "max-md:scale-y-0"
             }`}
-            id="navbar-default"
           >
-            <ul className="font-medium flex flex-col md:flex-row gap-7">
+            <ul className="font-medium flex max-md:flex-col md:gap-5">
               {navItems.map(({ name, url }) => {
                 return (
-                  <li key={name}>
+                  <li
+                    key={name}
+                    className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3"
+                  >
                     <a
                       href={url}
-                      className={`${
+                      className={`flex w-full hover:text-blue-500 ${
                         router.asPath === url
                           ? "text-blue-500"
                           : "text-gray-200"
