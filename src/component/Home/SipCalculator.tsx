@@ -34,9 +34,7 @@ const SIPCalculator = () => {
       tenure !== undefined
     ) {
       const emiAmount = calculateSIP(investmentAmount, interestRate, tenure);
-      console.log("obj=>", emiAmount);
-      // setEMI(Math.round(emiAmount));
-      setTotalLoanAmount(Math.round(emiAmount.totalInvestment));
+      setLoanAmount(Math.round(emiAmount.totalInvestment));
       setTotalInterest(Math.round(emiAmount.totalReturns));
       setTotalLoanAmount(Math.round(emiAmount.maturityValue));
     }
