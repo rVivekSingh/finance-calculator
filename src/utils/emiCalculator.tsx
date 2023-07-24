@@ -16,14 +16,12 @@ export const calculateEMI = (
 };
 
 export const calculateSIP = (principal: number, interestRate: number, investmentPeriod: number): {
-  maturityValue: string,
+  maturityValue: number,
   totalInvestment: number,
   totalReturns: number,
   annualizedReturns: string,
   sipAmount: string
-} {
-  console.log('utils data', principal, interestRate, investmentPeriod);
-  debugger;
+} => {
   const monthlyInterestRate: number = interestRate / 1200; // Convert annual interest rate to monthly
   const totalInvestment: number = principal * investmentPeriod * 12;
   let futureValue: number = 0;

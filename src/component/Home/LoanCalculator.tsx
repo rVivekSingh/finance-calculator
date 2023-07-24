@@ -1,12 +1,11 @@
-import { calculateSIP } from "@/utils/emiCalculator";
+import { calculateEMI } from "@/utils/emiCalculator";
 import React, { useState } from "react";
 import Button from "../Button";
 import Container from "../Container";
 import FormInput from "../FormInput";
-import { log } from "console";
 
-const SIPCalculator = () => {
-  const [investmentAmount, setLoanAmount] = useState<number | undefined>(100000);
+const LoanCalculator = () => {
+  const [loanAmount, setLoanAmount] = useState<number | undefined>(100000);
   const [interestRate, setInterestRate] = useState<number | undefined>(8.5);
   const [tenure, setTenure] = useState<number | undefined>(10);
   const [emi, setEMI] = useState<number>(0);
@@ -29,16 +28,16 @@ const SIPCalculator = () => {
   const handleCalculate = (e: any) => {
     e.preventDefault();
     if (
-      investmentAmount !== undefined &&
+      loanAmount !== undefined &&
       interestRate !== undefined &&
       tenure !== undefined
     ) {
-      const emiAmount = calculateSIP(investmentAmount, interestRate, tenure);
-      console.log("obj=>", emiAmount);
-      // setEMI(Math.round(emiAmount));
-      setTotalLoanAmount(Math.round(emiAmount.totalInvestment));
-      setTotalInterest(Math.round(emiAmount.totalReturns));
-      setTotalLoanAmount(Math.round(emiAmount.maturityValue));
+      const emiAmount = calculateEMI(loanAmount, interestRate, tenure);
+      const totalPayableAmount = emiAmount * tenure * 12;
+      const totalInterest = totalPayableAmount - loanAmount;
+      setEMI(Math.round(emiAmount));
+      setTotalLoanAmount(Math.round(totalPayableAmount));
+      setTotalInterest(Math.round(totalInterest));
     }
   };
 
@@ -51,7 +50,7 @@ const SIPCalculator = () => {
     setEMI(0);
   };
 
-  const resetStatus = !investmentAmount || !interestRate || !tenure;
+  const resetStatus = !loanAmount || !interestRate || !tenure;
 
   return (
     <section className="py-10 lg:py-16 z-30">
@@ -65,7 +64,7 @@ const SIPCalculator = () => {
                   label="Principal Amount"
                   type="number"
                   labelProps={{ htmlFor: "principal amount" }}
-                  value={investmentAmount !== undefined ? investmentAmount : ""}
+                  value={loanAmount !== undefined ? loanAmount : ""}
                   id="principal"
                   unit="₹"
                   placeholder="20,00,000"
@@ -124,13 +123,11 @@ const SIPCalculator = () => {
             <div className="card">
               <div id="chart" className="h-2/4"></div>
               <div className="grid  lg:grid-cols-2 gap-4">
-                <div className="lg:p-5 py-3 lg:py-8 text-center">
+                <div className="lg:p-5 py-3 lg:py-8 text-center text-orange-500">
                   <h1 className="text-2xl xl:text-4xl font-semibold mb-2 lg:mb-5">
-                    {investmentAmount
-                      ? "₹" + formatAmountWithCommas(investmentAmount)
-                      : "-"}
+                    {emi ? "₹" + formatAmountWithCommas(emi) : "-"}
                   </h1>
-                  <p className="font-medium">Invested Amount Amount</p>
+                  <p className="font-medium">Monthly EMI</p>
                 </div>
                 <div className="lg:p-5 py-3 lg:py-8 text-center">
                   <h1 className="text-2xl xl:text-4xl font-semibold mb-2 lg:mb-5">
@@ -138,7 +135,15 @@ const SIPCalculator = () => {
                       ? "₹" + formatAmountWithCommas(totalInterest)
                       : "-"}
                   </h1>
-                  <p className="font-medium">Est. returns</p>
+                  <p className="font-medium">Total Interest Payable</p>
+                </div>
+                <div className="lg:p-5 py-3 lg:py-8 text-center">
+                  <h1 className="text-2xl xl:text-4xl font-semibold mb-2 lg:mb-5">
+                    {loanAmount
+                      ? "₹" + formatAmountWithCommas(loanAmount)
+                      : "-"}
+                  </h1>
+                  <p className="font-medium">Principal Amount</p>
                 </div>
                 <div className="lg:p-5 py-3 lg:py-8 text-center">
                   <h1 className="text-2xl xl:text-4xl font-semibold mb-2 lg:mb-5">
@@ -146,7 +151,7 @@ const SIPCalculator = () => {
                       ? "₹" + formatAmountWithCommas(totalLoanAmount)
                       : "-"}
                   </h1>
-                  <p className="font-medium">Total Value</p>
+                  <p className="font-medium">Total Payable Amount</p>
                 </div>
               </div>
             </div>
@@ -157,4 +162,4 @@ const SIPCalculator = () => {
   );
 };
 
-export default SIPCalculator;
+export default LoanCalculator;
