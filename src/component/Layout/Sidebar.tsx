@@ -4,7 +4,7 @@ import SidebarBlock from "../SidebarBlock";
 
 const Sidebar = () => {
   const popular_calc = [
-    { text: "SIP Calculator", url: "/calculator" },
+    { text: "SIP Calculator", url: "/sip-calculator" },
     { text: "Lumpsum Calculator", url: "/" },
     { text: "SWP Calculator", url: "/" },
     { text: "Mutual Fund Returns Calculator", url: "/" },

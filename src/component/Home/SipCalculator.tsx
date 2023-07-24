@@ -1,5 +1,7 @@
 import { calculateSIP } from "@/utils/emiCalculator";
+import 'chartist/dist/index.css'
 import React, { useState } from "react";
+import { PieChart } from "chartist";
 import Button from "../Button";
 import Container from "../Container";
 import FormInput from "../FormInput";
@@ -37,6 +39,15 @@ const SIPCalculator = () => {
       setLoanAmount(Math.round(emiAmount.totalInvestment));
       setTotalInterest(Math.round(emiAmount.totalReturns));
       setTotalLoanAmount(Math.round(emiAmount.maturityValue));
+      new PieChart('#chart', {
+        series: [investmentAmount, totalInterest, totalLoanAmount]
+      }, {
+        donut: true,
+        donutWidth: 60,
+        donutSolid: true,
+        startAngle: 270,
+        showLabel: true
+      });
     }
   };
 
@@ -158,7 +169,7 @@ const SIPCalculator = () => {
             {/* Graph */}
             <div className="px-3 mt-10 text-center">
               <h2 className="mb-10 text-2xl font-semibold">Chart</h2>
-              <div className="w-60 h-60 mx-auto bg-indigo-500 rounded-full"></div>
+              <div id="chart" className="w-60 h-60 mx-auto rounded-full"></div>
             </div>
           </div>
         </div>
