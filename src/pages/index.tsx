@@ -1,3 +1,5 @@
+import Container from "@/component/Container";
+import LoanCalculator from "@/component/Home/LoanCalculator";
 import SipCalculator from "@/component/Home/SipCalculator";
 import Layout from "@/component/Layout/Layout";
 import { NextPage } from "next";
