@@ -126,14 +126,14 @@ const SipCalculator = () => {
               <div className="relative">
                 <div className="w-48 h-48 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl -z-10 " />
 
-                <div className="grid grid-cols-2 gap-4 pt-10 lg:pt-16">
-                  <div className="lg:p-5 py-3 lg:py-8 text-center text-orange-500">
+                <div className="grid grid-cols-2 gap-10 pt-10 lg:pt-16">
+                  <div className="text-center text-orange-500">
                     <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold mb-2 lg:mb-5">
                       {emi ? "₹" + formatAmountWithCommas(emi) : "-"}
                     </h1>
                     <p className="font-medium max-sm:text-sm">Monthly EMI</p>
                   </div>
-                  <div className="lg:p-5 py-3 lg:py-8 text-center">
+                  <div className="text-center">
                     <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold mb-2 lg:mb-5">
                       {totalInterest
                         ? "₹" + formatAmountWithCommas(totalInterest)
@@ -141,7 +141,7 @@ const SipCalculator = () => {
                     </h1>
                     <p className="font-medium max-sm:text-sm">Total Interest</p>
                   </div>
-                  <div className="lg:p-5 py-3 lg:py-8 text-center">
+                  <div className="text-center">
                     <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold mb-2 lg:mb-5">
                       {loanAmount
                         ? "₹" + formatAmountWithCommas(loanAmount)
@@ -151,7 +151,7 @@ const SipCalculator = () => {
                       Principal Amount
                     </p>
                   </div>
-                  <div className="lg:p-5 py-3 lg:py-8 text-center">
+                  <div className="text-center">
                     <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold mb-2 lg:mb-5">
                       {totalLoanAmount
                         ? "₹" + formatAmountWithCommas(totalLoanAmount)
