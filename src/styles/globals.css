@@ -13,8 +13,33 @@
 body {
   @apply bg-slate-900;
 }
+
 .container > div {
   @apply w-full;
+}
+
+main {
+  @apply md:w-[calc(100%-310px)] lg:w-[calc(100%-380px)];
+}
+
+.sidebar {
+  @apply w-full md:w-[280px] lg:w-[350px] mt-10 md:mt-[116px] flex flex-col gap-8;
+}
+
+.header {
+  @apply flex sticky top-0 z-50 bg-white border-b border-gray-700 dark:bg-gray-900;
+}
+
+.nav-collapse {
+  @apply w-full transition md:w-auto max-md:w-full max-md:absolute max-md:left-0 max-md:top-[80px] z-20 max-md:bg-slate-900 max-md:border-t duration-200 origin-top max-md:border-t-gray-700 md:flex-row;
+}
+
+.sidebar-block-title {
+  @apply text-lg tracking-wider font-semibold p-3 border-b border-slate-600;
+}
+
+.sidebar-block-link {
+  @apply block tracking-wider text-sm lg:text-base text-gray-200 hover:bg-blue-700/50 transition delay-75 hover:delay-100 ease-in p-3 border-b last:border-0 border-slate-600;
 }
 
 .label {
@@ -30,7 +55,7 @@ body {
 }
 
 .input-field {
-  @apply px-3 py-3 rounded-md w-full flex pr-7 outline-none ring-1 ring-gray-500 font-medium focus:ring-2 focus:ring-inset focus:ring-blue-500;
+  @apply px-3 py-2 w-full flex pr-7 outline-none text-black ring-1 ring-gray-500 font-medium focus:ring-2 focus:ring-inset focus:ring-blue-500 rounded;
 }
 
 .card {

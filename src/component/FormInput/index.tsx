@@ -39,7 +39,7 @@ const FormInput = ({
           {optional && <span className="label-optional">{optional}</span>}
         </label>
       )}
-      <div className="relative overflow-hidden rounded-md">
+      <div className="relative overflow-hidden">
         <input
           type={type}
           value={value}
