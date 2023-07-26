@@ -3,8 +3,12 @@ const nextConfig = {
   compiler: {
     reactStrictMode: true,
     swcMinify: true,
-    styledComponents: true
-  }
-}
+    styledComponents: true,
+  },
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
