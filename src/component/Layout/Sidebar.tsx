@@ -6,7 +6,7 @@ const Sidebar = () => {
   const popular_calc = [
     { text: "SIP Calculator", url: "/sip-calculator" },
     { text: "Lumpsum Calculator", url: "/" },
-    { text: "SWP Calculator", url: "/" },
+    { text: "Personal Loan EMI Calculator", url: "/personal-loan-emi-calculator" },
     { text: "Mutual Fund Returns Calculator", url: "/" },
     { text: "Sukanya Samriddhi Yojana Calculator", url: "/" },
     { text: "PPF Calculator", url: "/" },
@@ -17,8 +17,8 @@ const Sidebar = () => {
   ];
 
   const more_calc = [
-    { text: "SIP Calculator", url: "/" },
-    { text: "Lumpsum Calculator", url: "/" },
+    { text: "SIP Calculator", url: "/sip-calculator" },
+    { text: "Lumpsum Calculator", url: "/sip-calculator" },
     { text: "SWP Calculator", url: "/" },
     { text: "Mutual Fund Returns Calculator", url: "/" },
   ];

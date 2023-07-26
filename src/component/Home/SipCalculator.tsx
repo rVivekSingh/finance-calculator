@@ -11,9 +11,10 @@ const SIPCalculator = () => {
   const [investmentAmount, setLoanAmount] = useState<number | undefined>(100000);
   const [interestRate, setInterestRate] = useState<number | undefined>(8.5);
   const [tenure, setTenure] = useState<number | undefined>(10);
-  const [emi, setEMI] = useState<number>(0);
-  const [totalLoanAmount, setTotalLoanAmount] = useState<number>();
+
+  const [totalInvestment, setTotalInvestment] = useState<number>();
   const [totalInterest, setTotalInterest] = useState<number>();
+  const [totalValue, setTotalValue] = useState<number>();
 
   const formatAmountWithCommas = (amount: number): string => {
     return amount.toString().split(".")[0].length > 3
@@ -35,12 +36,13 @@ const SIPCalculator = () => {
       interestRate !== undefined &&
       tenure !== undefined
     ) {
-      const emiAmount = calculateSIP(investmentAmount, interestRate, tenure);
-      setLoanAmount(Math.round(emiAmount.totalInvestment));
-      setTotalInterest(Math.round(emiAmount.totalReturns));
-      setTotalLoanAmount(Math.round(emiAmount.maturityValue));
+      const sipCalculation = calculateSIP(investmentAmount, interestRate, tenure);
+      
+      setTotalInvestment(Math.round(sipCalculation.totalInvestment));
+      setTotalInterest(Math.round(sipCalculation.totalReturns));
+      setTotalValue(Math.round(sipCalculation.maturityValue));
       new PieChart('#chart', {
-        series: [investmentAmount, totalInterest, totalLoanAmount]
+        series: [sipCalculation.totalInvestment, sipCalculation.totalReturns, sipCalculation.maturityValue]
       }, {
         donut: true,
         donutWidth: 60,
@@ -57,14 +59,13 @@ const SIPCalculator = () => {
     setTenure(undefined);
     setTotalLoanAmount(undefined);
     setTotalInterest(undefined);
-    setEMI(0);
   };
 
   const resetStatus = !investmentAmount || !interestRate || !tenure;
 
   return (
     <>
-      <Title text="EMI Calculator" className="py-10 text-gray-200" />
+      <Title text="SIP Calculator" className="py-10 text-gray-200" />
       <section>
         <div className="card grid gap-10 items-center">
           <div className="flex max-lg:flex-col justify-between">
@@ -142,7 +143,7 @@ const SIPCalculator = () => {
                         ? "₹" + formatAmountWithCommas(totalInterest)
                         : "-"}
                     </h1>
-                    <p className="font-medium max-sm:text-sm">Total Interest</p>
+                    <p className="font-medium max-sm:text-sm">Est. Returns</p>
                   </div>
                   <div className="text-center">
                     <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold mb-2 lg:mb-5">
@@ -151,16 +152,16 @@ const SIPCalculator = () => {
                         : "-"}
                     </h1>
                     <p className="font-medium max-sm:text-sm">
-                      Principal Amount
+                      Invested Amount
                     </p>
                   </div>
                   <div className="text-center">
                     <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold mb-2 lg:mb-5">
-                      {totalLoanAmount
-                        ? "₹" + formatAmountWithCommas(totalLoanAmount)
+                      {totalValue
+                        ? "₹" + formatAmountWithCommas(totalValue)
                         : "-"}
                     </h1>
-                    <p className="font-medium max-sm:text-sm">Total Amount</p>
+                    <p className="font-medium max-sm:text-sm">Total Value</p>
                   </div>
                 </div>
               </div>
@@ -169,7 +170,7 @@ const SIPCalculator = () => {
             {/* Graph */}
             <div className="px-3 mt-10 text-center">
               <h2 className="mb-10 text-2xl font-semibold">Chart</h2>
-              <div id="chart" className="w-60 h-60 mx-auto rounded-full"></div>
+              <div id="chart" className="w-60 h-60 mx-auto rounded-full font-black text-white"></div>
             </div>
           </div>
         </div>
