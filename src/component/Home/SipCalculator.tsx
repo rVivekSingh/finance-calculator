@@ -8,7 +8,7 @@ import FormInput from "../FormInput";
 import Title from "../Title";
 
 const SIPCalculator = () => {
-  const [investmentAmount, setLoanAmount] = useState<number | undefined>(100000);
+  const [investmentAmount, setInvestmentAmount] = useState<number | undefined>(100000);
   const [interestRate, setInterestRate] = useState<number | undefined>(8.5);
   const [tenure, setTenure] = useState<number | undefined>(10);
 
@@ -54,11 +54,13 @@ const SIPCalculator = () => {
   };
 
   const handleResetForm = () => {
-    setLoanAmount(undefined);
+    setInvestmentAmount(undefined);
     setInterestRate(undefined);
     setTenure(undefined);
-    setTotalLoanAmount(undefined);
-    setTotalInterest(undefined);
+
+    setTotalInvestment(0);
+    setTotalInterest(0);
+    setTotalValue(0);
   };
 
   const resetStatus = !investmentAmount || !interestRate || !tenure;
@@ -83,7 +85,7 @@ const SIPCalculator = () => {
                     id="principal"
                     unit="₹"
                     placeholder="20,00,000"
-                    onChange={(e) => setLoanAmount(parseFloat(e.target.value))}
+                    onChange={(e) => setInvestmentAmount(parseFloat(e.target.value))}
                     required
                   />
 
@@ -147,8 +149,8 @@ const SIPCalculator = () => {
                   </div>
                   <div className="text-center">
                     <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold mb-2 lg:mb-5">
-                      {investmentAmount
-                        ? "₹" + formatAmountWithCommas(investmentAmount)
+                      {totalInvestment
+                        ? "₹" + formatAmountWithCommas(totalInvestment)
                         : "-"}
                     </h1>
                     <p className="font-medium max-sm:text-sm">
