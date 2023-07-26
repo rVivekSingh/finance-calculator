@@ -6,7 +6,7 @@ function Footer({}: Props) {
   return (
     <footer className="p-4 bg-slate-800 text-center md:p-6">
       <span className=" text-gray-400 sm:text-center">
-        © 2022{" "}
+        © {new Date().getFullYear() }{" "}
         <a href="https://SonicSoft.xyz/" className="underline">
           SonicSoft
         </a>

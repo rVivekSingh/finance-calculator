@@ -43,3 +43,7 @@ export const calculateSIP = (principal: number, interestRate: number, investment
     sipAmount
   };
 }
+
+const formatAmountWithCommas = (amount: number): string => {
+      return Intl.NumberFormat('en-IN').format(amount) ;
+  };

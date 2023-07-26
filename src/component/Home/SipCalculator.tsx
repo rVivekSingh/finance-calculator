@@ -17,16 +17,7 @@ const SIPCalculator = () => {
   const [totalValue, setTotalValue] = useState<number>();
 
   const formatAmountWithCommas = (amount: number): string => {
-    return amount.toString().split(".")[0].length > 3
-      ? amount
-          .toString()
-          .substring(0, amount.toString().split(".")[0].length - 3)
-          .replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
-          "," +
-          amount
-            .toString()
-            .substring(amount.toString().split(".")[0].length - 3)
-      : amount.toString();
+      return Intl.NumberFormat('en-IN').format(amount) ;
   };
 
   const handleCalculate = (e: any) => {
