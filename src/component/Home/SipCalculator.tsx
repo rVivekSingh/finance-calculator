@@ -46,7 +46,6 @@ const SIPCalculator = () => {
       }, {
         donut: true,
         donutWidth: 60,
-        donutSolid: true,
         startAngle: 270,
         showLabel: true
       });
