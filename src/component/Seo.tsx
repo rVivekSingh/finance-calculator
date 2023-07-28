@@ -17,7 +17,7 @@ function Seo({ title, description, pathname, hideExtraTitle }: ISeoProps) {
   const url = `https://www.schooldetails.org${pathname}`;
   const mainTitle = hideExtraTitle
     ? title
-    : `${title} | List of government and private schools in India, organized by state district block & cluster`;
+    : `${title} | EmiNinja | Emi Calculators | List of government and private schools in India, organized by state district block & cluster`;
   return (
     <>
       <NextSeo

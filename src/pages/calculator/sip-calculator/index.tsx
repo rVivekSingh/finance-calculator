@@ -1,13 +1,13 @@
 import SipCalculator from "@/component/Home/SipCalculator";
-import Layout from "@/component/Layout/Layout";
+import SidebarLayout from "@/component/Layout/SidebarLayout";
 import { NextPage } from "next";
 import React from "react";
 
 const Home: NextPage = () => {
   return (
-    <Layout seo={{ title: "EmiNinja | Emi Calculators", pathname: "/" }}>
+    <SidebarLayout seo={{ title: "Sip Calculator", pathname: "/" }}>
       <SipCalculator />
-    </Layout>
+    </SidebarLayout>
   );
 };
 export default Home;

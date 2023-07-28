@@ -15,12 +15,16 @@ export const calculateEMI = (
   return emiAmount;
 };
 
-export const calculateSIP = (principal: number, interestRate: number, investmentPeriod: number): {
-  maturityValue: number,
-  totalInvestment: number,
-  totalReturns: number,
-  annualizedReturns: string,
-  sipAmount: string
+export const calculateSIP = (
+  principal: number,
+  interestRate: number,
+  investmentPeriod: number
+): {
+  maturityValue: number | any;
+  totalInvestment: number;
+  totalReturns: number;
+  annualizedReturns: string;
+  sipAmount: string;
 } => {
   const monthlyInterestRate: number = interestRate / 1200; // Convert annual interest rate to monthly
   const totalInvestment: number = principal * investmentPeriod * 12;
@@ -32,18 +36,23 @@ export const calculateSIP = (principal: number, interestRate: number, investment
 
   const maturityValue: string = futureValue.toFixed(0);
   const totalReturns: number = parseInt(maturityValue) - totalInvestment;
-  const annualizedReturns: string = ((Math.pow(futureValue / principal, 1 / investmentPeriod) - 1) * 1200).toFixed(2);
-  const sipAmount: string = (totalInvestment / (investmentPeriod * 12)).toFixed(2);
+  const annualizedReturns: string = (
+    (Math.pow(futureValue / principal, 1 / investmentPeriod) - 1) *
+    1200
+  ).toFixed(2);
+  const sipAmount: string = (totalInvestment / (investmentPeriod * 12)).toFixed(
+    2
+  );
 
   return {
     maturityValue,
     totalInvestment,
     totalReturns,
     annualizedReturns,
-    sipAmount
+    sipAmount,
   };
-}
+};
 
-const formatAmountWithCommas = (amount: number): string => {
-      return Intl.NumberFormat('en-IN').format(amount) ;
-  };
+export const formatAmountWithCommas = (amount: number): string => {
+  return Intl.NumberFormat("en-IN").format(amount);
+};

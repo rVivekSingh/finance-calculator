@@ -17,7 +17,7 @@ export default function Header({}: IHeaderProps) {
   const navItems = [
     { name: "Home", url: "/" },
     { name: "About", url: "/about" },
-    { name: "Services", url: "/services" },
+    { name: "Calculators", url: "/calculator/sip-calculator" },
     { name: "Pricing", url: "/pricing" },
     { name: "Contact", url: "/contact" },
   ];
@@ -68,12 +68,12 @@ export default function Header({}: IHeaderProps) {
               isOpen ? "max-md:scale-y-100" : "max-md:scale-y-0"
             }`}
           >
-            <ul className="font-medium flex max-md:flex-col md:gap-5">
+            <ul className="flex max-md:flex-col md:gap-5">
               {navItems.map(({ name, url }) => {
                 return (
                   <li
                     key={name}
-                    className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3"
+                    className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3 text-sm"
                   >
                     <a
                       href={url}

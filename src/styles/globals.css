@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,7 +13,7 @@
 }
 
 body {
-  @apply bg-slate-900;
+  @apply bg-slate-900 font-Ubuntu;
 }
 
 .container > div {
@@ -23,7 +25,7 @@ main {
 }
 
 .sidebar {
-  @apply w-full md:w-[280px] lg:w-[350px] mt-10 md:mt-[116px] flex flex-col gap-8;
+  @apply sticky h-max top-32 w-full md:w-[280px] lg:w-[350px] mt-10 md:mt-[116px] flex flex-col gap-8;
 }
 
 .header {
@@ -60,4 +62,16 @@ main {
 
 .card {
   @apply backdrop-filter backdrop-blur-lg rounded-md p-5 text-white bg-blue-400 bg-clip-padding bg-opacity-10 border border-slate-400;
+}
+
+.card-result-items {
+  @apply flex items-center justify-between;
+}
+
+.card-result-items .text {
+  @apply max-sm:text-sm text-gray-200;
+}
+
+.card-result-items .h1 {
+  @apply text-xl font-semibold;
 }

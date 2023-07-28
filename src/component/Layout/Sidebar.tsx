@@ -4,9 +4,12 @@ import SidebarBlock from "../SidebarBlock";
 
 const Sidebar = () => {
   const popular_calc = [
-    { text: "SIP Calculator", url: "/sip-calculator" },
+    { text: "SIP Calculator", url: "/calculator/sip-calculator" },
     { text: "Lumpsum Calculator", url: "/" },
-    { text: "Personal Loan EMI Calculator", url: "/personal-loan-emi-calculator" },
+    {
+      text: "Personal Loan EMI Calculator",
+      url: "/calculator/personal-loan-emi-calculator",
+    },
     { text: "Mutual Fund Returns Calculator", url: "/" },
     { text: "Sukanya Samriddhi Yojana Calculator", url: "/" },
     { text: "PPF Calculator", url: "/" },
@@ -16,47 +19,9 @@ const Sidebar = () => {
     { text: "EMI Calculator", url: "/" },
   ];
 
-  const more_calc = [
-    { text: "SIP Calculator", url: "/sip-calculator" },
-    { text: "Lumpsum Calculator", url: "/sip-calculator" },
-    { text: "SWP Calculator", url: "/" },
-    { text: "Mutual Fund Returns Calculator", url: "/" },
-  ];
   return (
     <div className="sidebar">
-      <SidebarBlock
-        title="Popular Calculators"
-        data={popular_calc}
-        render={(item, index) =>
-          item.text && (
-            <Link
-              className="sidebar-block-link"
-              key={index}
-              href={item.url}
-              rel="noopener noreferrer"
-            >
-              {item.text}
-            </Link>
-          )
-        }
-      />
-
-      <SidebarBlock
-        title="More EMI Calculators"
-        data={more_calc}
-        render={(item, index) =>
-          item.text && (
-            <Link
-              className="sidebar-block-link"
-              key={index}
-              href={item.url}
-              rel="noopener noreferrer"
-            >
-              {item.text}
-            </Link>
-          )
-        }
-      />
+      <SidebarBlock title="Popular Calculators" data={popular_calc} />
     </div>
   );
 };
