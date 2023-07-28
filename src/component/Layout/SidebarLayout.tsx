@@ -18,7 +18,7 @@ const SidebarLayout = ({ children, seo }: Props) => {
         <div>
           <Header />
           <Container>
-            <div className="flex max-md:flex-col justify-between pb-16">
+            <div className="sidebar-layout flex max-md:flex-col justify-between pb-16">
               <main>{children}</main>
               <Sidebar />
             </div>

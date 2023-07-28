@@ -1,4 +1,4 @@
-import SipCalculator from "@/component/Home/SipCalculator";
+import SipCalculator from "@/component/Calculators/SipCalculator";
 import SidebarLayout from "@/component/Layout/SidebarLayout";
 import { NextPage } from "next";
 import React from "react";

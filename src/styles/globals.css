@@ -13,14 +13,14 @@
 }
 
 body {
-  @apply bg-slate-900 font-Ubuntu;
+  @apply bg-slate-800 font-Ubuntu;
 }
 
 .container > div {
   @apply w-full;
 }
 
-main {
+.sidebar-layout main {
   @apply md:w-[calc(100%-310px)] lg:w-[calc(100%-380px)];
 }
 
@@ -29,7 +29,7 @@ main {
 }
 
 .header {
-  @apply flex sticky top-0 z-50 bg-white border-b border-gray-700 dark:bg-gray-900;
+  @apply flex sticky top-0 z-50 border-b border-gray-700 bg-gray-900;
 }
 
 .nav-collapse {
@@ -74,4 +74,8 @@ main {
 
 .card-result-items .h1 {
   @apply text-xl font-semibold;
+}
+
+.para {
+  @apply text-gray-200 leading-7;
 }

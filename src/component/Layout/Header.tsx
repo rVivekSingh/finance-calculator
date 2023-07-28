@@ -26,7 +26,7 @@ export default function Header({}: IHeaderProps) {
       <Container>
         <nav className="flex flex-wrap items-center justify-between py-5 w-full">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center text-gray-200">
             <Image
               src="/images/header-logo.png"
               className="h-8 mr-3 object-contain"
@@ -34,7 +34,7 @@ export default function Header({}: IHeaderProps) {
               width={34}
               height={34}
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-2xl font-semibold whitespace-nowrap">
               EmiNinja
             </span>
           </Link>

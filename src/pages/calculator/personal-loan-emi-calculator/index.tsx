@@ -1,4 +1,4 @@
-import LoanCalculator from "@/component/Home/LoanCalculator";
+import LoanCalculator from "@/component/Calculators/LoanCalculator";
 import Layout from "@/component/Layout/Layout";
 import SidebarLayout from "@/component/Layout/SidebarLayout";
 import { NextPage } from "next";

@@ -16,9 +16,7 @@ const Layout = ({ children, seo }: Props) => {
       <div className="flex flex-col justify-between min-h-screen">
         <div>
           <Header />
-          <Container>
-            <main>{children}</main>
-          </Container>
+          <main>{children}</main>
         </div>
         <Footer />
       </div>
