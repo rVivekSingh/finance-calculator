@@ -1,8 +1,11 @@
 import { calculateEMI } from "@/utils/emiCalculator";
 import React, { useState } from "react";
 import Button from "../Button";
+import { Card, CardBody, CardChart, CardForm, CardResult } from "../Card";
 import Container from "../Container";
 import FormInput from "../FormInput";
+import Section from "../Section";
+import Title from "../Section";
 
 const LoanCalculator = () => {
   const [loanAmount, setLoanAmount] = useState<number | undefined>(100000);
@@ -53,11 +56,10 @@ const LoanCalculator = () => {
   const resetStatus = !loanAmount || !interestRate || !tenure;
 
   return (
-    <section className="py-10 lg:py-16 z-30">
-      <Container>
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          {/* Form */}
-          <div className="lg:mr-[100px]">
+    <Section title="Personal Loan Calculator">
+      <Card>
+        <CardBody>
+          <CardForm>
             <form autoComplete="off">
               <div>
                 <FormInput
@@ -114,51 +116,50 @@ const LoanCalculator = () => {
                 </div>
               </div>
             </form>
-          </div>
 
-          {/* Result */}
-          <div className="relative">
-            <div className="w-48 h-48 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl -z-10 " />
-
-            <div className="card">
-              <div id="chart" className="h-2/4"></div>
-              <div className="grid  lg:grid-cols-2 gap-4">
-                <div className="lg:p-5 py-3 lg:py-8 text-center text-orange-500">
-                  <h1 className="text-2xl xl:text-4xl font-semibold mb-2 lg:mb-5">
-                    {emi ? "₹" + formatAmountWithCommas(emi) : "-"}
-                  </h1>
-                  <p className="font-medium">Monthly EMI</p>
-                </div>
-                <div className="lg:p-5 py-3 lg:py-8 text-center">
-                  <h1 className="text-2xl xl:text-4xl font-semibold mb-2 lg:mb-5">
-                    {totalInterest
-                      ? "₹" + formatAmountWithCommas(totalInterest)
-                      : "-"}
-                  </h1>
-                  <p className="font-medium">Total Interest Payable</p>
-                </div>
-                <div className="lg:p-5 py-3 lg:py-8 text-center">
-                  <h1 className="text-2xl xl:text-4xl font-semibold mb-2 lg:mb-5">
-                    {loanAmount
-                      ? "₹" + formatAmountWithCommas(loanAmount)
-                      : "-"}
-                  </h1>
-                  <p className="font-medium">Principal Amount</p>
-                </div>
-                <div className="lg:p-5 py-3 lg:py-8 text-center">
-                  <h1 className="text-2xl xl:text-4xl font-semibold mb-2 lg:mb-5">
-                    {totalLoanAmount
-                      ? "₹" + formatAmountWithCommas(totalLoanAmount)
-                      : "-"}
-                  </h1>
-                  <p className="font-medium">Total Payable Amount</p>
-                </div>
+            <CardResult>
+              <div className="card-result-items">
+                <p className="text">Monthly EMI</p>
+                <h1 className="h1">
+                  {emi ? "₹" + formatAmountWithCommas(emi) : "-"}
+                </h1>
               </div>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </section>
+              <div className="card-result-items">
+                <p className="text">Total Interest Payable</p>
+                <h1 className="h1">
+                  {totalInterest
+                    ? "₹" + formatAmountWithCommas(totalInterest)
+                    : "-"}
+                </h1>
+              </div>
+              <div className="card-result-items">
+                <p className="text">Principal Amount</p>
+                <h1 className="h1">
+                  {loanAmount ? "₹" + formatAmountWithCommas(loanAmount) : "-"}
+                </h1>
+              </div>
+              <div className="card-result-items">
+                <p className="text">Total Payable Amount</p>
+                <h1 className="h1">
+                  {totalLoanAmount
+                    ? "₹" + formatAmountWithCommas(totalLoanAmount)
+                    : "-"}
+                </h1>
+              </div>
+            </CardResult>
+          </CardForm>
+
+          {/* Graph */}
+          <CardChart>
+            <h2 className="mb-10 text-2xl font-semibold">Chart</h2>
+            <div
+              id="chart"
+              className="w-60 h-60 mx-auto rounded-full font-black text-white"
+            ></div>
+          </CardChart>
+        </CardBody>
+      </Card>
+    </Section>
   );
 };
 

@@ -17,7 +17,7 @@ export default function Header({}: IHeaderProps) {
   const navItems = [
     { name: "Home", url: "/" },
     { name: "About", url: "/about" },
-    { name: "Services", url: "/services" },
+    { name: "Calculators", url: "/calculator/sip-calculator" },
     { name: "Pricing", url: "/pricing" },
     { name: "Contact", url: "/contact" },
   ];
@@ -26,7 +26,7 @@ export default function Header({}: IHeaderProps) {
       <Container>
         <nav className="flex flex-wrap items-center justify-between py-5 w-full">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center text-gray-200">
             <Image
               src="/images/header-logo.png"
               className="h-8 mr-3 object-contain"
@@ -34,7 +34,7 @@ export default function Header({}: IHeaderProps) {
               width={34}
               height={34}
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-2xl font-semibold whitespace-nowrap">
               EmiNinja
             </span>
           </Link>
@@ -68,12 +68,12 @@ export default function Header({}: IHeaderProps) {
               isOpen ? "max-md:scale-y-100" : "max-md:scale-y-0"
             }`}
           >
-            <ul className="font-medium flex max-md:flex-col md:gap-5">
+            <ul className="flex max-md:flex-col md:gap-5">
               {navItems.map(({ name, url }) => {
                 return (
                   <li
                     key={name}
-                    className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3"
+                    className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3 text-sm"
                   >
                     <a
                       href={url}

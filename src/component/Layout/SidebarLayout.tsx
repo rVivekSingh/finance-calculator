@@ -3,20 +3,26 @@ import Container from "../Container";
 import Seo, { ISeoProps } from "../Seo";
 import Footer from "./Footer";
 import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 interface Props {
   children: ReactNode;
   seo: ISeoProps;
 }
 
-const Layout = ({ children, seo }: Props) => {
+const SidebarLayout = ({ children, seo }: Props) => {
   return (
     <>
       <Seo {...seo} />
       <div className="flex flex-col justify-between min-h-screen">
         <div>
           <Header />
-          <main>{children}</main>
+          <Container>
+            <div className="sidebar-layout flex max-md:flex-col justify-between pb-16">
+              <main>{children}</main>
+              <Sidebar />
+            </div>
+          </Container>
         </div>
         <Footer />
       </div>
@@ -24,4 +30,4 @@ const Layout = ({ children, seo }: Props) => {
   );
 };
 
-export default Layout;
+export default SidebarLayout;
