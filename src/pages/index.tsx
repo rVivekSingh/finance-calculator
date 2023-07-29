@@ -12,19 +12,52 @@ const Home: NextPage = () => {
         <BannerSection />
         <Section title="Welcome to the EMI Ninja">
           <p className="para">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel itaque
-            quam hic, qui esse et aliquid iusto illum repellendus incidunt
-            voluptatibus. Mollitia optio est blanditiis obcaecati magnam
-            explicabo recusandae totam commodi, sed ut dolores cum illum tempore
-            molestias expedita rem deserunt eos architecto distinctio labore
-            fugit consequatur ipsam? Necessitatibus, facere est molestiae
-            consequuntur ad accusantium tenetur consectetur maiores labore
-            perferendis illo ut commodi earum neque iure itaque assumenda ipsum
-            autem atque! Architecto aliquam in doloribus corrupti molestiae.
-            Provident, veritatis iste repudiandae quibusdam unde cupiditate,
-            molestias voluptatibus veniam sed pariatur qui tempora harum aut hic
-            earum deleniti excepturi, fugit ipsam corporis!
+            Welcome to EmiNinja Financial Calculators! Empower your financial
+            decisions with our suite of easy-to-use and accurate financial
+            calculators. Whether you're planning to take a loan, invest in your
+            future, or analyze your savings, our calculators are here to help
+            you make informed choices.
           </p>
+          <h1 className="para">Welcome to eMininja Financial Calculators!</h1>
+          <ol className="para"  type="1">
+            <li>
+              Comprehensive Loan Calculators: Take the guesswork out of loan
+              planning. Our loan calculators let you estimate your monthly
+              payments, track interest rates, and determine the best repayment
+              strategies for your needs.
+            </li>
+            <li>
+              Investment Returns at Your Fingertips: Explore the potential
+              returns on your investments with confidence. Our investment
+              calculators help you analyze various investment options, plan for
+              long-term growth, and stay on top of your financial goals.
+            </li>
+            <li>
+              Savings and SIP Planner: Achieving your financial goals starts
+              with a well-structured savings plan. Our SIP (Systematic
+              Investment Plan) calculator assists you in understanding the power
+              of regular savings and visualizing the growth over time.
+            </li>
+            <li>
+              User-Friendly Interface: Our user-friendly design ensures that you
+              can effortlessly input your financial data and instantly receive
+              accurate results. No complex formulas or manual calculations
+              required.
+            </li>
+            <li>
+              Tailored Solutions for Your Needs: Whether you are a young
+              professional, a seasoned investor, or planning for your dream
+              home, we have calculators tailored to your unique financial
+              requirements.
+            </li>
+          </ol>
+          <p className="para">
+            Take the first step towards financial empowerment. Start using our
+            financial calculators now and take control of your money with
+            eMininja!
+          </p>
+
+          <h2 className="para">Ready to Plan Your Financial Future? Get Started Now!</h2>
         </Section>
       </Container>
     </Layout>

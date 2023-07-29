@@ -18,7 +18,6 @@ export default function Header({}: IHeaderProps) {
     { name: "Home", url: "/" },
     { name: "About", url: "/about" },
     { name: "Calculators", url: "/calculator/sip-calculator" },
-    { name: "Pricing", url: "/pricing" },
     { name: "Contact", url: "/contact" },
   ];
   return (
