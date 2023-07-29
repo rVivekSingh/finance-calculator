@@ -1,77 +1,62 @@
-import { calculateSIP } from "@/utils/emiCalculator";
-import "chartist/dist/index.css";
+import { calculateEMI } from "@/utils/emiCalculator";
 import React, { useState } from "react";
-import { PieChart } from "chartist";
 import Button from "../Button";
-import FormInput from "../FormInput";
-import Title from "../Section";
 import { Card, CardBody, CardChart, CardForm, CardResult } from "../Card";
+import Container from "../Container";
+import FormInput from "../FormInput";
 import Section from "../Section";
+import Title from "../Section";
 
-const SIPCalculator = () => {
-  const [investmentAmount, setInvestmentAmount] = useState<number | undefined>(
-    100000
-  );
+const FDCalculator = () => {
+  const [loanAmount, setLoanAmount] = useState<number | undefined>(100000);
   const [interestRate, setInterestRate] = useState<number | undefined>(8.5);
   const [tenure, setTenure] = useState<number | undefined>(10);
-
-  const [totalInvestment, setTotalInvestment] = useState<number>();
+  const [emi, setEMI] = useState<number>(0);
+  const [totalLoanAmount, setTotalLoanAmount] = useState<number>();
   const [totalInterest, setTotalInterest] = useState<number>();
-  const [totalValue, setTotalValue] = useState<number>();
 
   const formatAmountWithCommas = (amount: number): string => {
-    return Intl.NumberFormat("en-IN").format(amount);
+    return amount.toString().split(".")[0].length > 3
+      ? amount
+          .toString()
+          .substring(0, amount.toString().split(".")[0].length - 3)
+          .replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
+          "," +
+          amount
+            .toString()
+            .substring(amount.toString().split(".")[0].length - 3)
+      : amount.toString();
   };
 
   const handleCalculate = (e: any) => {
     e.preventDefault();
     if (
-      investmentAmount !== undefined &&
+      loanAmount !== undefined &&
       interestRate !== undefined &&
       tenure !== undefined
     ) {
-      const sipCalculation = calculateSIP(
-        investmentAmount,
-        interestRate,
-        tenure
-      );
-
-      setTotalInvestment(Math.round(sipCalculation.totalInvestment));
-      setTotalInterest(Math.round(sipCalculation.totalReturns));
-      setTotalValue(Math.round(sipCalculation.maturityValue));
-      new PieChart(
-        "#chart",
-        {
-          series: [
-            sipCalculation.totalInvestment,
-            sipCalculation.totalReturns,
-            sipCalculation.maturityValue,
-          ],
-        },
-        {
-          donut: true,
-          donutWidth: 60,
-          startAngle: 270,
-          showLabel: true,
-        }
-      );
+      const emiAmount = calculateEMI(loanAmount, interestRate, tenure);
+      const totalPayableAmount = emiAmount * tenure * 12;
+      const totalInterest = totalPayableAmount - loanAmount;
+      setEMI(Math.round(emiAmount));
+      setTotalLoanAmount(Math.round(totalPayableAmount));
+      setTotalInterest(Math.round(totalInterest));
     }
   };
 
   const handleResetForm = () => {
-    setInvestmentAmount(undefined);
+    setLoanAmount(undefined);
     setInterestRate(undefined);
     setTenure(undefined);
-
-    setTotalInvestment(0);
-    setTotalInterest(0);
-    setTotalValue(0);
+    setTotalLoanAmount(undefined);
+    setTotalInterest(undefined);
+    setEMI(0);
   };
 
-  const resetStatus = !investmentAmount || !interestRate || !tenure;
+  const resetStatus = !loanAmount || !interestRate || !tenure;
 
   return (
-    <Section title="SIP Calculator">
+    <Section title="FD Calculator">
       <Card>
         <CardBody>
           <CardForm>
@@ -81,13 +66,11 @@ const SIPCalculator = () => {
                   label="Principal Amount"
                   type="number"
                   labelProps={{ htmlFor: "principal amount" }}
-                  value={investmentAmount !== undefined ? investmentAmount : ""}
+                  value={loanAmount !== undefined ? loanAmount : ""}
                   id="principal"
                   unit="₹"
                   placeholder="20,00,000"
-                  onChange={(e) =>
-                    setInvestmentAmount(parseFloat(e.target.value))
-                  }
+                  onChange={(e) => setLoanAmount(parseFloat(e.target.value))}
                   required
                 />
 
@@ -137,10 +120,15 @@ const SIPCalculator = () => {
               </div>
             </form>
 
-            {/* Result */}
             <CardResult>
               <div className="card-result-items">
-                <p className="text">Est. Returns</p>
+                <p className="text">Monthly EMI</p>
+                <h1 className="h1">
+                  {emi ? "₹" + formatAmountWithCommas(emi) : "-"}
+                </h1>
+              </div>
+              <div className="card-result-items">
+                <p className="text">Total Interest Payable</p>
                 <h1 className="h1">
                   {totalInterest
                     ? "₹" + formatAmountWithCommas(totalInterest)
@@ -148,17 +136,17 @@ const SIPCalculator = () => {
                 </h1>
               </div>
               <div className="card-result-items">
-                <p className="text">Invested Amount</p>
+                <p className="text">Principal Amount</p>
                 <h1 className="h1">
-                  {totalInvestment
-                    ? "₹" + formatAmountWithCommas(totalInvestment)
-                    : "-"}
+                  {loanAmount ? "₹" + formatAmountWithCommas(loanAmount) : "-"}
                 </h1>
               </div>
               <div className="card-result-items">
-                <p className="text">Total Value</p>
+                <p className="text">Total Payable Amount</p>
                 <h1 className="h1">
-                  {totalValue ? "₹" + formatAmountWithCommas(totalValue) : "-"}
+                  {totalLoanAmount
+                    ? "₹" + formatAmountWithCommas(totalLoanAmount)
+                    : "-"}
                 </h1>
               </div>
             </CardResult>
@@ -178,4 +166,4 @@ const SIPCalculator = () => {
   );
 };
 
-export default SIPCalculator;
+export default FDCalculator;

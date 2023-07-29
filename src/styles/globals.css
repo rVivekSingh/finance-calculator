@@ -13,7 +13,14 @@
 }
 
 body {
-  @apply bg-slate-800 font-Ubuntu;
+  @apply bg-gray-50 dark:bg-zinc-950 font-Ubuntu text-gray-900 dark:text-gray-200;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply text-slate-800 dark:text-gray-200;
 }
 
 .container > div {
@@ -37,31 +44,31 @@ body {
 }
 
 .sidebar-block-title {
-  @apply text-lg tracking-wider font-semibold p-3 border-b border-slate-400;
+  @apply text-lg tracking-wider font-semibold p-3 border-b border-slate-400 text-slate-800 dark:text-gray-200;
 }
 
 .sidebar-block-link {
-  @apply block tracking-wider text-sm lg:text-base text-gray-200 hover:bg-blue-700/50 transition delay-75 hover:delay-100 ease-in p-3 border-b last:border-0 border-slate-400;
+  @apply block tracking-wider text-sm lg:text-base lg:hover:bg-blue-700/50 transition duration-75 hover:duration-100 ease-in p-3 border-b border-dashed last:border-0 border-slate-400 text-slate-800 dark:text-gray-200;
 }
 
 .label {
-  @apply text-gray-100 tracking-wide;
+  @apply text-slate-800 dark:text-gray-100 tracking-wide;
 }
 
 .label-optional {
-  @apply text-sm text-gray-300;
+  @apply text-sm text-slate-800 dark:text-gray-300;
 }
 
 .input-group {
-  @apply flex flex-col gap-3 mb-8;
+  @apply flex flex-col gap-3 mb-3 lg:mb-8;
 }
 
 .input-field {
-  @apply px-3 py-2 w-full flex pr-7 outline-none text-black ring-1 ring-gray-500 font-medium focus:ring-2 focus:ring-inset focus:ring-blue-500 rounded;
+  @apply px-3 py-2 w-full flex pr-7 outline-none ring-1 ring-gray-500 font-medium focus:ring-2 focus:ring-inset focus:ring-blue-500 text-slate-800 dark:text-gray-200;
 }
 
 .card {
-  @apply backdrop-filter backdrop-blur-lg rounded-md p-5 text-white bg-blue-400 bg-clip-padding bg-opacity-10 border border-slate-400;
+  @apply rounded-md p-5 text-white dark:bg-zinc-900 bg-clip-padding border  bg-gray-200 border-gray-300 dark:border-zinc-700;
 }
 
 .card-result-items {
@@ -69,13 +76,13 @@ body {
 }
 
 .card-result-items .text {
-  @apply max-sm:text-sm text-gray-200;
+  @apply max-sm:text-sm text-slate-800 dark:text-gray-200;
 }
 
 .card-result-items .h1 {
-  @apply text-xl font-semibold;
+  @apply text-xl font-medium text-slate-800 dark:text-gray-200;
 }
 
 .para {
-  @apply text-gray-200 leading-7;
+  @apply text-gray-900 dark:text-gray-300 leading-7;
 }

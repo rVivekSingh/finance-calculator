@@ -5,8 +5,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ variant = "primary", className, ...rest }) => {
-  let classes = "px-4 py-3 rounded-md font-semibold";
+const Button: React.FC<ButtonProps> = ({
+  variant = "primary",
+  className,
+  ...rest
+}) => {
+  let classes = "px-4 py-3 rounded-md";
   switch (variant) {
     case "secondary":
       classes += " bg-orange-500 text-white";
@@ -19,7 +23,12 @@ const Button: React.FC<ButtonProps> = ({ variant = "primary", className, ...rest
       break;
   }
 
-  return <button className={`${classes} ${className} disabled:opacity-30 disabled:cursor-not-allowed`} {...rest} />;
+  return (
+    <button
+      className={`${classes} ${className} disabled:opacity-30 disabled:cursor-not-allowed`}
+      {...rest}
+    />
+  );
 };
 
 export default Button;

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 interface SectionProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   title?: string;
@@ -8,9 +8,11 @@ interface SectionProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
 
 const Section = ({ children, title, className }: SectionProps) => {
   return (
-    <section className="pt-10 lg:pt-14 w-full">
+    <section className={`pt-6 lg:pt-14 w-full ${className || ""}`}>
       {title && (
-        <h1 className={`font-medium pb-6 text-gray-200 ${className} text-3xl`}>
+        <h1
+          className={`font-medium pb-6 text-slate-800 dark:text-gray-200 text-xl lg:text-3xl`}
+        >
           {title}
         </h1>
       )}
