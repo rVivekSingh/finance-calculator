@@ -1,14 +1,23 @@
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Container from "../Container";
+import { FaMoon } from "react-icons/fa";
+import { BiSun } from "react-icons/bi";
 
 export interface IHeaderProps {}
 
 export default function Header({}: IHeaderProps) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   const handleMenuToggle = () => {
     setIsOpen(!isOpen);
@@ -67,27 +76,39 @@ export default function Header({}: IHeaderProps) {
               isOpen ? "max-md:scale-y-100" : "max-md:scale-y-0"
             }`}
           >
-            <ul className="flex max-md:flex-col md:gap-5">
+            <ul className="flex max-md:flex-col md:gap-5 lg:items-center">
               {navItems.map(({ name, url }) => {
                 return (
                   <li
                     key={name}
                     className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3 text-sm"
                   >
-                    <a
+                    <Link
                       href={url}
                       className={`flex w-full hover:text-blue-500 ${
                         router.asPath === url
                           ? "text-blue-500"
-                          : "text-gray-200"
+                          : " text-gray-200"
                       } `}
                       aria-current="page"
                     >
                       {name}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
+
+              <li
+                className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3 text-sm items-center gap-3 text-gray-200"
+                onClick={toggleTheme}
+              >
+                <p className="text-lg lg:text-xl">
+                  {theme === "light" ? <FaMoon /> : <BiSun />}
+                </p>
+                <span className="lg:hidden">
+                  {theme === "light" ? "Dark" : "Light"}
+                </span>
+              </li>
             </ul>
           </div>
         </nav>

@@ -40,7 +40,7 @@ const CardForm: React.FC<CardFormProps> = ({
 }) => {
   return (
     <div
-      className={`card-form flex flex-col gap-11 xl:mr-16 lg:w-[calc(100%-300px)] ${
+      className={`card-form flex flex-col gap-6 lg:gap-11 xl:mr-16 lg:w-[calc(100%-300px)] ${
         className || ""
       }`}
       {...rest}

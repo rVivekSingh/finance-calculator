@@ -39,7 +39,7 @@ const FormInput = ({
           {optional && <span className="label-optional">{optional}</span>}
         </label>
       )}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden rounded">
         <input
           type={type}
           value={value}
@@ -51,7 +51,7 @@ const FormInput = ({
           required={required}
         />
 
-        <div className="absolute text-gray-700 inset-y-2 flex items-center right-2 bg-white w-7 justify-center font-semibold text-xl">
+        <div className="absolute inset-y-2 flex items-center right-2  w-7 justify-center font-medium text-xl text-slate-800 dark:text-gray-200">
           {unit}
         </div>
       </div>

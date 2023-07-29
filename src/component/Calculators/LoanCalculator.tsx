@@ -100,12 +100,15 @@ const LoanCalculator = () => {
                 />
 
                 <div className="grid grid-cols-2 gap-8">
-                  <Button className="w-full mt-6" onClick={handleCalculate}>
+                  <Button
+                    className="w-full mt-3 lg:mt-6"
+                    onClick={handleCalculate}
+                  >
                     Calculate
                   </Button>
 
                   <Button
-                    className="w-full mt-6"
+                    className="w-full mt-3 lg:mt-6"
                     variant="secondary"
                     type="button"
                     onClick={handleResetForm}
