@@ -1,3 +1,4 @@
+
 export const calculateEMI = (
   loanAmount: number,
   interestRate: number,
@@ -53,6 +54,12 @@ export const calculateSIP = (
   };
 };
 
-export const formatAmountWithCommas = (amount: number): string => {
-  return Intl.NumberFormat("en-IN").format(amount);
-};
+export function calculateLumpSumInvestment(
+  principal: number, // Initial investment amount
+  annualInterestRate: number, // Annual interest rate (in percentage)
+  investmentPeriod: number // Investment period (in years)
+): number {
+  return Math.round(Math.pow((1 + annualInterestRate / 100), investmentPeriod) * principal);
+}
+
+
