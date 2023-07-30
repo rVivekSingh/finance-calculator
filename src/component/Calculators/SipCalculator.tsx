@@ -78,7 +78,7 @@ const SIPCalculator = () => {
             <form autoComplete="off">
               <div>
                 <FormInput
-                  label="Principal Amount"
+                  label="Monthly Investment"
                   type="number"
                   labelProps={{ htmlFor: "principal amount" }}
                   value={investmentAmount !== undefined ? investmentAmount : ""}
@@ -92,7 +92,8 @@ const SIPCalculator = () => {
                 />
 
                 <FormInput
-                  label="Rate of Interest"
+                  label="Expected Return Rate"
+                  optional="(p.a)"
                   type="number"
                   labelProps={{ htmlFor: "interest" }}
                   value={interestRate !== undefined ? interestRate : ""}
