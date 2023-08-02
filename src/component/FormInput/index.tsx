@@ -13,6 +13,7 @@ interface InputProps {
   inputStyle?: CSSProperties;
   labelProps?: LabelHTMLAttributes<HTMLLabelElement>;
   placeholder?: string;
+  disabled?: boolean;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -29,6 +30,7 @@ const FormInput = ({
   inputStyle,
   placeholder,
   required,
+  disabled,
   onChange,
 }: InputProps) => {
   return (
@@ -49,6 +51,7 @@ const FormInput = ({
           placeholder={placeholder}
           id={id}
           required={required}
+          disabled={disabled}
         />
 
         <div className="absolute inset-y-2 flex items-center right-2  w-7 justify-center font-medium text-xl text-slate-800 dark:text-gray-200">

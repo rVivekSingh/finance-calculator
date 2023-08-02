@@ -5,6 +5,7 @@ import Button from "../Button";
 import { Card, CardBody, CardChart, CardForm, CardResult } from "../Card";
 import FormInput from "../FormInput";
 import Section from "../Section";
+import { PieChart } from "chartist";
 
 const LumpsumCalculator = () => {
   const [totalInvestment, setTotalInvestment] = useState<number | undefined>(100000);
@@ -27,8 +28,27 @@ const LumpsumCalculator = () => {
        
       setTotalInterest(Math.round(lumpsumAmount - totalInvestment));
       setTotalValue(lumpsumAmount);
+      updateChart(totalInvestment, Math.ceil(lumpsumAmount));
     }
   };
+
+  const updateChart = (principal : number, interest : number) =>{
+    new PieChart(
+      "#chart",
+      {
+        series: [
+          principal,
+          interest
+        ],
+      },
+      {
+        donut: true,
+        donutWidth: 60,
+        startAngle: 270,
+        showLabel: true,
+      }
+    );
+  }
 
   const handleResetForm = () => {
     setTotalInvestment(undefined);

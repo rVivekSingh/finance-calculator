@@ -14,27 +14,27 @@ if (INDEXING_ENABLED) {
 }
 
 function Seo({ title, description, pathname, hideExtraTitle }: ISeoProps) {
-  const url = `https://www.schooldetails.org${pathname}`;
+  const url = `https://emininja.com${pathname}`;
   const mainTitle = hideExtraTitle
     ? title
-    : `${title} | EmiNinja | Emi Calculators | List of government and private schools in India, organized by state district block & cluster`;
+    : `${title} | EmiNinja.com - Your Financial Calculators Hub | Comprehensive Suite of Financial Calculators`;
   return (
     <>
       <NextSeo
         title={mainTitle}
         description={
           description ||
-          "Find comprehensive information about schools in India, including contact details, organized by state. Our directory includes both government and private schools."
+          "Welcome to EmiNinja.com - Unlock Your Financial Potential with our Comprehensive Suite of Financial Calculators"
         }
         canonical={url}
         {...IndexTags}
         openGraph={{
           url: url,
-          title: `${title} | schooldetails`,
+          title: `${title} | EmiNinja`,
           description:
             description ||
-            "Find comprehensive information about schools in India, including contact details, organized by state. Our directory includes both government and private schools.",
-          site_name: "schooldetails",
+            "Welcome to EmiNinja.com - Unlock Your Financial Potential with our Comprehensive Suite of Financial Calculators",
+          site_name: "EmiNinja.com",
           type: "website",
           images: [
             {

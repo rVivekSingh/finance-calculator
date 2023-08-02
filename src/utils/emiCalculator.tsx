@@ -62,4 +62,17 @@ export function calculateLumpSumInvestment(
   return Math.round(Math.pow((1 + annualInterestRate / 100), investmentPeriod) * principal);
 }
 
+export function calculatePPFMaturityAmount(
+  principal: number, // Principal amount (initial investment)
+  annualInterestRate: number, // Annual interest rate (as a percentage)
+  compoundingFrequency: number, // Number of times interest is compounded per year
+  investmentPeriod: number // Investment period in years
+): number {
+  const r: number = annualInterestRate / 100;
+  
+  return 10000*( ( ( (1+r) ** 15 )-1)/ r) * (1+r);
+
+}
+
+
 

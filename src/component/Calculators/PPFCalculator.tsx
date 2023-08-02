@@ -1,36 +1,40 @@
-import { calculateEMI } from "@/utils/emiCalculator";
+import { calculatePPFMaturityAmount } from "@/utils/emiCalculator";
 import "chartist/dist/index.css";
 import { PieChart } from "chartist";
 import { formatAmountWithCommas } from "@/utils/utils"
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 import { Card, CardBody, CardChart, CardForm, CardResult } from "../Card";
 import FormInput from "../FormInput";
 import Section from "../Section";
 
-const LoanCalculator = () => {
-  const [loanAmount, setLoanAmount] = useState<number | undefined>(1000000);
-  const [interestRate, setInterestRate] = useState<number | undefined>(8.5);
-  const [tenure, setTenure] = useState<number | undefined>(5);
-  const [emi, setEMI] = useState<number>(0);
-  const [totalLoanAmount, setTotalLoanAmount] = useState<number>();
+const PPFCalculator = () => {
+  const [investment, setInvestment] = useState<number | undefined>(10000);
+  const [interestRate, setInterestRate] = useState<number | undefined>(7.1);
+  const [tenure, setTenure] = useState<number | undefined>(15);
+
+
+  const [totalInvestment, setTotalInvestment] = useState<number>();
   const [totalInterest, setTotalInterest] = useState<number>();
+  const [maturityValue, setMaturityValue] = useState<number>();
 
 
   const handleCalculate = (e: any) => {
     e.preventDefault();
     if (
-      loanAmount !== undefined &&
+      investment !== undefined &&
       interestRate !== undefined &&
       tenure !== undefined
     ) {
-      const emiAmount = calculateEMI(loanAmount, interestRate, tenure);
-      const totalPayableAmount = emiAmount * tenure * 12;
-      const totalInterest = totalPayableAmount - loanAmount;
-      setEMI(Math.round(emiAmount));
-      setTotalLoanAmount(Math.round(totalPayableAmount));
-      setTotalInterest(Math.round(totalInterest));
-      updateChart(loanAmount, Math.ceil(totalInterest));
+      const ppfReturns = calculatePPFMaturityAmount(investment, interestRate, 12, tenure);
+      
+      const totalPayableAmount = ppfReturns * tenure * 12;
+      const totalInterest = totalPayableAmount - investment;
+      
+      setTotalInvestment(investment*tenure);
+      setTotalInterest(Math.round(ppfReturns - investment * tenure));
+      setMaturityValue(Math.ceil(ppfReturns));
+      updateChart(totalInvestment, maturityValue);
     }
   };
 
@@ -53,18 +57,15 @@ const LoanCalculator = () => {
   }
 
   const handleResetForm = () => {
-    setLoanAmount(undefined);
     setInterestRate(undefined);
     setTenure(undefined);
-    setTotalLoanAmount(undefined);
     setTotalInterest(undefined);
-    setEMI(0);
   };
 
-  const resetStatus = !loanAmount || !interestRate || !tenure;
+  const resetStatus = !investment || !interestRate || !tenure;
 
   return (
-    <Section title="Personal Loan Calculator">
+    <Section title="PPF Calculator">
       <Card>
         <CardBody>
           <CardForm>
@@ -74,11 +75,11 @@ const LoanCalculator = () => {
                   label="Principal Amount"
                   type="number"
                   labelProps={{ htmlFor: "principal amount" }}
-                  value={loanAmount !== undefined ? loanAmount : ""}
+                  value={investment !== undefined ? investment : ""}
                   id="principal"
                   unit="₹"
                   placeholder="20,00,000"
-                  onChange={(e) => setLoanAmount(parseFloat(e.target.value))}
+                  onChange={(e) => setInvestment(parseFloat(e.target.value))}
                   required
                 />
 
@@ -92,6 +93,7 @@ const LoanCalculator = () => {
                   placeholder="8.5"
                   onChange={(e) => setInterestRate(parseFloat(e.target.value))}
                   required
+                  disabled={true}
                 />
 
                 <FormInput
@@ -130,13 +132,13 @@ const LoanCalculator = () => {
 
             <CardResult>
               <div className="card-result-items">
-                <p className="text">Monthly EMI</p>
+                <p className="text">Total Invested Amount</p>
                 <h1 className="h1">
-                  {emi ? "₹" + formatAmountWithCommas(emi) : "-"}
+                  {totalInvestment ? "₹" + formatAmountWithCommas(totalInvestment) : "-"}
                 </h1>
               </div>
               <div className="card-result-items">
-                <p className="text">Total Interest Payable</p>
+                <p className="text">Total Interest</p>
                 <h1 className="h1">
                   {totalInterest
                     ? "₹" + formatAmountWithCommas(totalInterest)
@@ -144,16 +146,10 @@ const LoanCalculator = () => {
                 </h1>
               </div>
               <div className="card-result-items">
-                <p className="text">Principal Amount</p>
+                <p className="text">Maturity Value</p>
                 <h1 className="h1">
-                  {loanAmount ? "₹" + formatAmountWithCommas(loanAmount) : "-"}
-                </h1>
-              </div>
-              <div className="card-result-items">
-                <p className="text">Total Payable Amount</p>
-                <h1 className="h1">
-                  {totalLoanAmount
-                    ? "₹" + formatAmountWithCommas(totalLoanAmount)
+                  {maturityValue
+                    ? "₹" + formatAmountWithCommas(maturityValue)
                     : "-"}
                 </h1>
               </div>
@@ -174,4 +170,4 @@ const LoanCalculator = () => {
   );
 };
 
-export default LoanCalculator;
+export default PPFCalculator;
