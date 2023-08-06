@@ -1,7 +1,7 @@
 import { calculatePPFMaturityAmount } from "@/utils/emiCalculator";
 import "chartist/dist/index.css";
 import { PieChart } from "chartist";
-import { formatAmountWithCommas } from "@/utils/utils"
+import { formatAmountWithCommas } from "@/utils/utils";
 import React, { useState } from "react";
 import Button from "../Button";
 import { Card, CardBody, CardChart, CardForm, CardResult } from "../Card";
@@ -13,11 +13,9 @@ const PPFCalculator = () => {
   const [interestRate, setInterestRate] = useState<number | undefined>(7.1);
   const [tenure, setTenure] = useState<number | undefined>(15);
 
-
-  const [totalInvestment, setTotalInvestment] = useState<number>();
+  const [totalInvestment, setTotalInvestment] = useState<number | any>();
   const [totalInterest, setTotalInterest] = useState<number>();
-  const [maturityValue, setMaturityValue] = useState<number>();
-
+  const [maturityValue, setMaturityValue] = useState<number | any>();
 
   const handleCalculate = (e: any) => {
     e.preventDefault();
@@ -26,26 +24,28 @@ const PPFCalculator = () => {
       interestRate !== undefined &&
       tenure !== undefined
     ) {
-      const ppfReturns = calculatePPFMaturityAmount(investment, interestRate, 12, tenure);
-      
+      const ppfReturns = calculatePPFMaturityAmount(
+        investment,
+        interestRate,
+        12,
+        tenure
+      );
+
       const totalPayableAmount = ppfReturns * tenure * 12;
-      const totalInterest = totalPayableAmount - investment;
-      
-      setTotalInvestment(investment*tenure);
+      // const totalInterest = totalPayableAmount - investment;
+
+      setTotalInvestment(investment * tenure);
       setTotalInterest(Math.round(ppfReturns - investment * tenure));
       setMaturityValue(Math.ceil(ppfReturns));
       updateChart(totalInvestment, maturityValue);
     }
   };
 
-  const updateChart = (principal : number, interest : number) =>{
+  const updateChart = (principal: number, interest: number) => {
     new PieChart(
       "#chart",
       {
-        series: [
-          principal,
-          interest
-        ],
+        series: [principal, interest],
       },
       {
         donut: true,
@@ -54,7 +54,7 @@ const PPFCalculator = () => {
         showLabel: true,
       }
     );
-  }
+  };
 
   const handleResetForm = () => {
     setInterestRate(undefined);
@@ -134,7 +134,9 @@ const PPFCalculator = () => {
               <div className="card-result-items">
                 <p className="text">Total Invested Amount</p>
                 <h1 className="h1">
-                  {totalInvestment ? "₹" + formatAmountWithCommas(totalInvestment) : "-"}
+                  {totalInvestment
+                    ? "₹" + formatAmountWithCommas(totalInvestment)
+                    : "-"}
                 </h1>
               </div>
               <div className="card-result-items">

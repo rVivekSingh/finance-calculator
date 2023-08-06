@@ -1,5 +1,5 @@
-import { formatAmountWithCommas } from "@/utils/utils"
-import { calculateSWP, getTotalWithdrawalAmount } from "@/utils/swpCalculator"
+import { formatAmountWithCommas } from "@/utils/utils";
+import { calculateSWP, getTotalWithdrawalAmount } from "@/utils/swpCalculator";
 import React, { useState } from "react";
 import Button from "../Button";
 import FormInput from "../FormInput";
@@ -31,15 +31,15 @@ const SWPCalculator = () => {
         interestRate
       );
       setTotalWithdrawal(getTotalWithdrawalAmount(withdrawalAmount, tenure));
-    //   setTotalInvestment(Math.round(sipCalculation.totalInvestment));
-    //   setTotalInterest(Math.round(sipCalculation.totalReturns));
-    //   setTotalValue(Math.round(sipCalculation.maturityValue));
+      //   setTotalInvestment(Math.round(sipCalculation.totalInvestment));
+      //   setTotalInterest(Math.round(sipCalculation.totalReturns));
+      //   setTotalValue(Math.round(sipCalculation.maturityValue));
     }
   };
 
   const handleResetForm = () => {
     setInvestmentAmount(undefined);
-    setWithdrawalAmount(undefined)
+    setWithdrawalAmount(undefined);
     setInterestRate(undefined);
     setTenure(undefined);
 
@@ -47,7 +47,8 @@ const SWPCalculator = () => {
     setTotalValue(0);
   };
 
-  const resetStatus = !investmentAmount || !interestRate || !tenure || !withdrawalAmount;
+  const resetStatus =
+    !investmentAmount || !interestRate || !tenure || !withdrawalAmount;
 
   return (
     <Section title="SWP (Systematic Withdrawal Plan) Calculator">
@@ -78,7 +79,9 @@ const SWPCalculator = () => {
                   id="rate"
                   unit="₹"
                   placeholder="8.5"
-                  onChange={(e) => setWithdrawalAmount(parseFloat(e.target.value))}
+                  onChange={(e) =>
+                    setWithdrawalAmount(parseFloat(e.target.value))
+                  }
                   required
                 />
                 <FormInput
@@ -86,11 +89,13 @@ const SWPCalculator = () => {
                   optional="(in years)"
                   type="number"
                   labelProps={{ htmlFor: "time period" }}
-                  value={ tenure !== undefined ? tenure : ""}
+                  value={tenure !== undefined ? tenure : ""}
                   id="tenure"
                   unit="Yr"
                   placeholder="10"
-                  onChange={(e) => setInterestRate(parseInt(e.target.value, 10))}
+                  onChange={(e) =>
+                    setInterestRate(parseInt(e.target.value, 10))
+                  }
                   required
                 />
 
@@ -106,7 +111,6 @@ const SWPCalculator = () => {
                   onChange={(e) => setTenure(parseInt(e.target.value, 10))}
                   required
                 />
-
 
                 <div className="grid grid-cols-2 gap-8">
                   <Button className="w-full mt-6" onClick={handleCalculate}>
@@ -151,67 +155,112 @@ const SWPCalculator = () => {
                 </h1>
               </div>
             </CardResult>
-
-            <p className="text-gray-200/80">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi,
-              accusantium repellat expedita ad quam numquam, doloribus
-              reiciendis voluptate magni at in itaque exercitationem est fugiat
-              sed soluta incidunt assumenda nobis!
-            </p>
           </CardForm>
         </CardBody>
-      </Card> <br />
+      </Card>{" "}
+      <br />
       <Card>
-            <p className="text-gray-200/80">
-                 A SWP (Systematic Withdrawal Plan) calculator is a powerful financial tool designed to assist investors in 
-                 planning and managing their withdrawals from an investment portfolio. It helps individuals generate a regular
-                  income stream or meet specific financial goals by calculating the amount that can be withdrawn periodically
-                   while preserving the long-term sustainability of their investments.
-            </p>
-            <br />
-            <p className="text-gray-200/80">
-                The SWP calculator takes into account several key factors, including the initial investment amount, 
-                desired withdrawal frequency (e.g., monthly, quarterly, annually), investment period, and, optionally, 
-                the expected annual growth rate of the investment. By inputting these details, investors can gain valuable 
-                insights into their investment portfolio's potential to generate income over a specific time frame.
-                <br /><br />
-                This tool is especially beneficial for retirees or individuals seeking to generate passive income during
-                 their retirement years. By understanding the sustainable withdrawal amount, investors can make informed 
-                 decisions about their financial well-being, ensuring they strike the right balance between maintaining their 
-                 investment's value and fulfilling their income needs.
+        <p>
+          A SWP (Systematic Withdrawal Plan) calculator is a powerful financial
+          tool designed to assist investors in planning and managing their
+          withdrawals from an investment portfolio. It helps individuals
+          generate a regular income stream or meet specific financial goals by
+          calculating the amount that can be withdrawn periodically while
+          preserving the long-term sustainability of their investments.
+        </p>
+        <p>
+          The SWP calculator takes into account several key factors, including
+          the initial investment amount, desired withdrawal frequency (e.g.,
+          monthly, quarterly, annually), investment period, and, optionally, the
+          expected annual growth rate of the investment. By inputting these
+          details, investors can gain valuable insights into their investment
+          portfolio&apos;s potential to generate income over a specific time
+          frame.
+        </p>
+        <p>
+          This tool is especially beneficial for retirees or individuals seeking
+          to generate passive income during their retirement years. By
+          understanding the sustainable withdrawal amount, investors can make
+          informed decisions about their financial well-being, ensuring they
+          strike the right balance between maintaining their investment&apos;s
+          value and fulfilling their income needs.
+        </p>
+        <div>
+          <p>The SWP calculator empowers users to:</p>
 
-            </p>
-            <div>
-                <p className="text-gray-200/80">
-                    The SWP calculator empowers users to: <br /><br />
+          <p>
+            Plan for Retirement: Determine the most appropriate withdrawal
+            strategy during retirement, ensuring a comfortable and secure
+            post-retirement life.
+          </p>
 
-                    Plan for Retirement: Determine the most appropriate withdrawal strategy during retirement, ensuring a comfortable and secure post-retirement life.
-                    <br /><br />
-                    Manage Income Streams: Create a structured approach to generating regular income from investments, avoiding over or under withdrawals.
-                    <br /><br />
-                    Set Financial Goals: Use the calculator to plan for major life events such as education expenses, home purchases, or travel plans, while considering the impact on investment holdings.
-                    <br /><br />
-                    Optimize Withdrawals: Assess the impact of different withdrawal frequencies or investment periods to identify the most suitable strategy.
-                    <br /><br />
-                    While the SWP calculator provides valuable estimates, it is essential to remember that actual investment performance and market fluctuations may affect the real-world outcomes. Therefore, investors should approach SWP planning holistically, taking into account other financial factors and seeking advice from financial professionals if needed.
-                    <br /><br />
-                    In summary, a SWP calculator empowers investors to make informed decisions regarding their investments and financial goals. By offering a clear picture of the withdrawal process, it serves as a valuable tool in achieving long-term financial security and planning for a prosperous future.</p>
-            </div>
-            <div>
-                <h2>How to calculate SWP Amount</h2>
-                <div>
-                    SWP Amount = (Initial Investment / Withdrawal Frequency) + (Annual Growth Rate / 100) * Initial Investment
-                    <br /><br />
-                    Explanation:
-                    <br /><br />
-                    "SWP Amount" represents the periodic amount that can be withdrawn from the investment portfolio.
-                    "Initial Investment" is the total amount initially invested in the portfolio.
-                    "Withdrawal Frequency" refers to how often you plan to make withdrawals (e.g., monthly, quarterly, annually).
-                    "Annual Growth Rate" is the expected annual growth rate of the investment. This part is optional and can be omitted if no growth rate is considered.
-                </div>
-            </div>
+          <p>
+            Manage Income Streams: Create a structured approach to generating
+            regular income from investments, avoiding over or under withdrawals.
+          </p>
+
+          <p>
+            Set Financial Goals: Use the calculator to plan for major life
+            events such as education expenses, home purchases, or travel plans,
+            while considering the impact on investment holdings.
+          </p>
+
+          <p>
+            Optimize Withdrawals: Assess the impact of different withdrawal
+            frequencies or investment periods to identify the most suitable
+            strategy.
+          </p>
+
+          <p>
+            While the SWP calculator provides valuable estimates, it is
+            essential to remember that actual investment performance and market
+            fluctuations may affect the real-world outcomes. Therefore,
+            investors should approach SWP planning holistically, taking into
+            account other financial factors and seeking advice from financial
+            professionals if needed.
+          </p>
+
+          <p>
+            In summary, a SWP calculator empowers investors to make informed
+            decisions regarding their investments and financial goals. By
+            offering a clear picture of the withdrawal process, it serves as a
+            valuable tool in achieving long-term financial security and planning
+            for a prosperous future.
+          </p>
+        </div>
+        <div>
+          <h2 className="my-5 text-xl">How to calculate SWP Amount</h2>
+          <div>
+            <p className="!text-blue-500">
+              SWP Amount = (Initial Investment / Withdrawal Frequency) + (Annual
+              Growth Rate / 100) * Initial Investment
+            </p>
+            <p>Explanation:</p>
+
+            <p>
+              &quot;SWP Amount&quot; represents the periodic amount that can be
+              withdrawn from the investment portfolio.
+            </p>
+
+            <p>
+              &quot;Initial Investment&quot; is the total amount initially
+              invested in the portfolio.
+            </p>
+
+            <p>
+              &quot;Withdrawal Frequency&quot; refers to how often you plan to
+              make withdrawals (e.g., monthly, quarterly, annually).
+            </p>
+
+            <p>
+              &quot;Annual Growth Rate&quot; is the expected annual growth rate
+              of the investment. This part is optional and can be omitted if no
+              growth rate is considered.
+            </p>
+          </div>
+        </div>
       </Card>
     </Section>
   );
 };
-export default SWPCalculator
+export default SWPCalculator;

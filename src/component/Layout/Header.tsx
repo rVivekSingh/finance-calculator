@@ -99,12 +99,10 @@ export default function Header({}: IHeaderProps) {
               })}
 
               <li
-                className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3 text-sm items-center gap-3 text-gray-200"
+                className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3 items-center gap-3 text-gray-200 text-lg lg:text-xl"
                 onClick={toggleTheme}
               >
-                <p className="text-lg lg:text-xl">
-                  {theme === "light" ? <FaMoon /> : <BiSun />}
-                </p>
+                {theme === "light" ? <FaMoon /> : <BiSun />}
                 <span className="lg:hidden">
                   {theme === "light" ? "Dark" : "Light"}
                 </span>

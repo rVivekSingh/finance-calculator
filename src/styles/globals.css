@@ -20,7 +20,15 @@ h1,
 h2,
 h3,
 h4 {
-  @apply text-slate-800 dark:text-gray-200;
+  @apply text-slate-800 dark:text-gray-100 font-medium;
+}
+
+p {
+  @apply text-gray-900 dark:text-gray-300;
+}
+
+p:not(:last-of-type) {
+  @apply mb-5;
 }
 
 .container > div {
@@ -48,7 +56,7 @@ h4 {
 }
 
 .sidebar-block-link {
-  @apply block tracking-wider text-sm lg:text-base lg:hover:bg-blue-700/50 transition duration-75 hover:duration-100 ease-in p-3 border-b border-dashed last:border-0 border-slate-400 text-slate-800 dark:text-gray-200;
+  @apply block tracking-wider text-sm lg:text-base lg:hover:bg-blue-600/50 lg:hover:text-gray-200 transition duration-75 hover:duration-100 ease-in p-3 border-b border-dashed last:border-0 border-slate-400 text-slate-800 dark:text-gray-200;
 }
 
 .label {
@@ -64,7 +72,7 @@ h4 {
 }
 
 .input-field {
-  @apply px-3 py-2 w-full flex pr-7 outline-none ring-1 ring-gray-500 font-medium focus:ring-2 focus:ring-inset focus:ring-blue-500 text-slate-800 dark:text-gray-200;
+  @apply px-3 py-2 w-full flex pr-7 outline-none ring-1 ring-gray-500 font-medium focus:ring-2 focus:ring-inset focus:ring-blue-500 text-slate-800 dark:text-gray-200 disabled:cursor-not-allowed disabled:bg-gray-300 rounded;
 }
 
 .card {
