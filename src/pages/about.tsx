@@ -4,7 +4,7 @@ import Layout from "@/component/Layout/Layout";
 import Section from "@/component/Section";
 import Image from "next/image";
 import React from "react";
-import { FaFacebook, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 const developers = [
   {
