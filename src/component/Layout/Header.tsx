@@ -103,7 +103,7 @@ export default function Header({}: IHeaderProps) {
                 onClick={toggleTheme}
               >
                 {theme === "light" ? <FaMoon /> : <BiSun />}
-                <span className="lg:hidden">
+                <span className="md:hidden">
                   {theme === "light" ? "Dark" : "Light"}
                 </span>
               </li>
