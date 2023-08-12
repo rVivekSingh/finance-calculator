@@ -25,9 +25,9 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
       <SidebarBlock title="Popular Calculators" data={popular_calc} />
-    </div>
+    </aside>
   );
 };
 
