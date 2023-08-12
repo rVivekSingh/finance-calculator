@@ -12,6 +12,10 @@ module.exports = {
   darkMode: ["class"],
   theme: {
     extend: {
+      animation: {
+        revealRight: 'revealRight 0.5s ease forwards',
+      },
+
       fontFamily: {
         Ubuntu: ['Ubuntu', "sans-serif"]
       }
