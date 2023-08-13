@@ -5,7 +5,7 @@ import Section from "../Section";
 const BannerSection = () => {
   return (
     <Section>
-      <BannerImage imageUrl="/images/about-banner-image.webp" />
+      <BannerImage imageUrl="/images/banner-1.png" />
     </Section>
   );
 };

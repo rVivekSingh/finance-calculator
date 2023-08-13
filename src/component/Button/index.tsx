@@ -10,7 +10,7 @@ const Button: React.FC<ButtonProps> = ({
   className,
   ...rest
 }) => {
-  let classes = "px-4 py-3 rounded-md";
+  let classes = "px-4 py-2 rounded-md";
   switch (variant) {
     case "secondary":
       classes += " bg-orange-500 text-white";

@@ -54,7 +54,7 @@ const FormInput = ({
           disabled={disabled}
         />
 
-        <div className="absolute inset-y-2 flex items-center right-2  w-7 justify-center font-medium text-xl text-slate-800 dark:text-gray-200">
+        <div className="absolute inset-y-2 flex items-center right-2 w-7 justify-center font-medium text-lg text-slate-800 dark:text-gray-200">
           {unit}
         </div>
       </div>
