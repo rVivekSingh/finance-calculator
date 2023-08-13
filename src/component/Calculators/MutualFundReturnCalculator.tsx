@@ -4,12 +4,11 @@ import React, { useState } from "react";
 import { PieChart } from "chartist";
 import Button from "../Button";
 import FormInput from "../FormInput";
-import Title from "../Section";
 import { Card, CardBody, CardChart, CardForm, CardResult } from "../Card";
 import Section from "../Section";
 
-const SIPCalculator = () => {
-  const [investmentAmount, setInvestmentAmount] = useState<number | undefined>(
+const MutualFundReturnCalculator = () => {
+  const [monthlyInvestment, setMonthlyInvestment] = useState<number | undefined>(
     100000
   );
   const [interestRate, setInterestRate] = useState<number | undefined>(8.5);
@@ -26,12 +25,12 @@ const SIPCalculator = () => {
   const handleCalculate = (e: any) => {
     e.preventDefault();
     if (
-      investmentAmount !== undefined &&
+      monthlyInvestment !== undefined &&
       interestRate !== undefined &&
       tenure !== undefined
     ) {
       const sipCalculation = calculateSIP(
-        investmentAmount,
+        monthlyInvestment,
         interestRate,
         tenure
       );
@@ -59,7 +58,7 @@ const SIPCalculator = () => {
   };
 
   const handleResetForm = () => {
-    setInvestmentAmount(undefined);
+    setMonthlyInvestment(undefined);
     setInterestRate(undefined);
     setTenure(undefined);
 
@@ -68,10 +67,10 @@ const SIPCalculator = () => {
     setTotalValue(0);
   };
 
-  const resetStatus = !investmentAmount || !interestRate || !tenure;
+  const resetStatus = !monthlyInvestment || !interestRate || !tenure;
 
   return (
-    <Section title="SIP Calculator">
+    <Section title="Mutual Funds Returns Calculator">
       <Card>
         <CardBody>
           <CardForm>
@@ -81,12 +80,12 @@ const SIPCalculator = () => {
                   label="Monthly Investment"
                   type="number"
                   labelProps={{ htmlFor: "principal amount" }}
-                  value={investmentAmount !== undefined ? investmentAmount : ""}
+                  value={monthlyInvestment !== undefined ? monthlyInvestment : ""}
                   id="principal"
                   unit="₹"
                   placeholder="20,00,000"
                   onChange={(e) =>
-                    setInvestmentAmount(parseFloat(e.target.value))
+                    setMonthlyInvestment(parseFloat(e.target.value))
                   }
                   required
                 />
@@ -174,91 +173,48 @@ const SIPCalculator = () => {
             ></div>
           </CardChart>
         </CardBody>
-      </Card> <br />
+      </Card>
+      <br />
       <Card>
-        <h1>SIP Calculator – Systematic Investment Plan Calculator</h1>
+        <p>
+            Mutual funds stand tall as one of the most favored avenues of investment in the Indian financial landscape. 
+            The mind-boggling statistics from June 2019 bear witness to this fact, 
+            with the average assets under management (AuM) of the entire MF industry towering at a staggering Rs. 24.25 trillion - a phenomenal increase of over four times from Rs. 5.83 trillion back in 2009.
 
-        
-        <p>Prospective investors may mistakenly conflate SIPs with mutual funds,
-           but the former is simply a means of investing in the latter. Lump sum investments represent an alternative investment method.
-            A SIP calculator serves as a valuable resource for determining the potential returns on investments made through such tools.
-             Systematic Investment Plans, or SIPs, involve investing a fixed amount of money in mutual funds at set intervals. 
-             SIPs typically allow for weekly, quarterly, or monthly investments.
-         </p>
+            Granted, mutual fund investments are exposed to market risks, but the prospective returns can be estimated fairly accurately.
+            To gauge the anticipated returns, one can easily employ the free mutual fund return calculator from Groww and arrive at the expected amount.
+        </p>
+        <p>
+            <h2>How Can an Online Mutual Fund Return Calculator Assist You?</h2>
+            
 
-         <div>
-              <h2>What is a SIP Calculator?</h2>
+            An investor should acquaint themselves with the diverse types of mutual fund returns,
+            including absolute return, annualised return, total return, trailing return, point-to-point return, and rolling return.
 
-              <p>
-                A tool of simplicity, the SIP calculator, grants individuals a glimpse into the returns of their mutual fund investments made through SIP. 
-                As of late, investing in mutual funds through SIP has become a favored option amongst the millennial generation.
+            It can be a daunting task for a potential investor to keep track of so many variables,
+            which is where an online mutual fund return calculator can prove to be a valuable asset.
 
-                These calculators for mutual fund SIPs are designed to provide potential investors with an approximation of their mutual fund investments. 
-                However, the actual returns offered by a mutual fund scheme are subject to variation based on a multitude of factors. 
-                The SIP calculator fails to offer clarification on the exit load and expense ratio, if present.
+            The calculator offers a comprehensive estimate for investment periods of 1 year, 3 years, and 5 years. 
+            Additionally, it allows you to plan for future financial endeavors based on these estimated returns.
 
-                Through this calculator, the wealth gain and projected returns for your monthly SIP investment will be calculated. 
-                Truly, a rough estimation of the maturity amount for any monthly SIP, based on a projected annual return rate, can be obtained.
-              </p>
-           
-         </div>
+            Fortunately, you do not need to be an expert in the field to navigate the calculator.
+            It's user-friendly, and even those unfamiliar with it will not find it difficult to use.
+        </p>
+        <p>
+            <h2>The utilization of EmiNnja's online mutual funds calculator presents numerous benefits that simplify the lives of investors.</h2> 
 
-         <div>
-               <h2>Are you curious about the advantages of utilizing a SIP return calculator?</h2>
-               <p className="para"> 
-                According to numerous mutual fund experts, SIPs are a more advantageous approach to investing funds compared to a lump sum amount. 
-                They offer financial discipline and encourage the development of savings habits that can benefit your future.
+            This tool offers a relatively precise estimation of the returns on your mutual fund investments, ensuring that you can make informed decisions.
 
-                An online SIP calculator is an incredibly useful tool that provides you with an estimate of your future returns after the investment tenure.
+            By eliminating manual calculations, this calculator preserves your valuable time, freeing you to focus on other financial tasks.
 
-                Consider some of the benefits of utilizing a SIP calculator, such as assisting you in determining the amount to invest, 
-                informing you of your total investment amount, and providing an estimated value of your returns.
-               </p>
-         </div>
+            Furthermore, since it is an online tool, you can access it from any location, providing an incredibly convenient means of performing financial planning on-the-go.
 
-         <div>
-            <h2>How do SIP calculators work?</h2>
-
-            <p className="para">
-                A SIP plan calculator employs a fundamental formula that reads as follows -
-
-                <p>
-                  M = P × ({' '}
-                  <sup>
-                    {'{'}
-                    [1 + i]
-                    <sup>n</sup> – 1{' '}
-                    {'}'}
-                  </sup>{' '}
-                  / i) × (1 + i).
-                </p>
-
-
-                In this formula -
-
-                M signifies the amount you will receive upon maturity. 
-                P represents the amount you regularly invest. 
-                n represents the number of payments you have made. 
-                i represents the periodic rate of interest.
-
-                For instance, suppose you wish to invest Rs. 1,000 every month for 12 months at a periodic rate of interest of 12%.
-
-                In such a case, the monthly rate of return would amount to 12%/12 = 1/100=0.01.
-
-                Thus, 
-                <p>
-                  M = 1,000 &#215; &#123;[1 + 0.01 ]&#123;12&#125; &#8211; 1&#125; / 0.01&#41; &#215; &#40;1 + 0.01&#41;.
-                </p>
-
-
-                This calculation amounts to approximately Rs 12,809 in a year.
-
-                It is essential to note that the rate of interest on a SIP is subject to market conditions. It may fluctuate and thereby impact the estimated returns.
-            </p>
-         </div>
-      </Card> 
+            In India, mutual funds are a steadily growing investment instrument, and despite the inherent risks, the returns are proportionately higher.
+        </p>
+    
+      </Card>
     </Section>
   );
 };
 
-export default SIPCalculator;
+export default MutualFundReturnCalculator

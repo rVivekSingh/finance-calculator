@@ -70,7 +70,7 @@ export function calculatePPFMaturityAmount(
 ): number {
   const r: number = annualInterestRate / 100;
   
-  return 10000*( ( ( (1+r) ** 15 )-1)/ r) * (1+r);
+  return principal*( ( ( (1+r) ** 15 )-1)/ r) * (1+r);
 
 }
 

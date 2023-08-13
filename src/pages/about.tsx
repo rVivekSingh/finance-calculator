@@ -27,8 +27,8 @@ const developers = [
     description:
       "Experienced in building robust and efficient server-side applications.",
     socialLinks: {
-      github: "https://github.com/vivek",
-      linkedin: "https://linkedin.com/in/vivek",
+      github: "https://github.com/rVivekSingh",
+      linkedin: "https://www.linkedin.com/in/rviveksingh/",
     },
   },
 ];
@@ -42,27 +42,23 @@ const about = () => {
         <Section title="About Us">
           <div className="py-8">
             <p>
-              Welcome to our Loan Calculator website! We are a team of finance
-              enthusiasts dedicated to helping you make informed financial
-              decisions.
+              Welcome to our website dedicated to the art of calculating EMI! 
+              We are a group of passionate individuals who are determined to assist you in making well-informed financial choices.
             </p>
             <p>
-              Our easy-to-use loan calculator tool is designed to assist you in
-              estimating your monthly loan payments, interest rates, and loan
-              terms. Whether you&apos;re planning to buy a car, a home, or
-              simply need a personal loan, our calculator can help you crunch
-              the numbers.
+             Our user-friendly loan calculator instrument has been crafted to aid you in approximating your monthly loan payments, 
+             interest rates, and loan provisions. Whether you are contemplating purchasing a car, a house, or simply necessitate a personal loan, 
+             our calculator is adept at facilitating you to scrutinize the figures.
             </p>
             <p>
-              We understand that financial planning can be complex, and our
-              mission is to simplify it for you. Feel free to explore our
-              website, use our loan calculator, and reach out to us if you have
-              any questions or feedback.
+              At the core of our beliefs lies the recognition that financial planning can be a labyrinthine journey, 
+              fraught with intricacies and complexities that can leave even the most seasoned of individuals feeling overwhelmed and lost. 
+              Our mission, therefore, is to act as your guide through these murky waters, simplifying the process and illuminating the way forward.
+               We invite you to peruse our website at your leisure, utilizing our invaluable loan calculator, 
+               and should you require any further assistance or wish to impart feedback, please do not hesitate to contact us.
             </p>
             <p>
-              Thank you for choosing us as your financial companion. We look
-              forward to assisting you on your journey towards a more secure
-              financial future.
+             Thank you for selecting us as your trusted financial comrade. We eagerly anticipate rendering our aid as you voyage towards a fortified and stable financial horizon.
             </p>
 
             <div className="mt-8 pt-7">
