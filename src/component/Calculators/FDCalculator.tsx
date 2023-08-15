@@ -1,4 +1,4 @@
-import { calculateEMI } from "@/utils/emiCalculator";
+import { formatAmountWithCommas, calculateFDMaturityAmount } from  "@/utils/utils"
 import React, { useState } from "react";
 import Button from "../Button";
 import { Card, CardBody, CardChart, CardForm, CardResult } from "../Card";
@@ -6,54 +6,57 @@ import Container from "../Container";
 import FormInput from "../FormInput";
 import Section from "../Section";
 import Title from "../Section";
+import { PieChart } from "chartist";
+import "chartist/dist/index.css";
 
 const FDCalculator = () => {
-  const [loanAmount, setLoanAmount] = useState<number | undefined>(100000);
+  const [totalInvestment, setTotalInvestment] = useState<number | undefined>(100000);
   const [interestRate, setInterestRate] = useState<number | undefined>(8.5);
   const [tenure, setTenure] = useState<number | undefined>(10);
-  const [emi, setEMI] = useState<number>(0);
+
   const [totalLoanAmount, setTotalLoanAmount] = useState<number>();
   const [totalInterest, setTotalInterest] = useState<number>();
-
-  const formatAmountWithCommas = (amount: number): string => {
-    return amount.toString().split(".")[0].length > 3
-      ? amount
-          .toString()
-          .substring(0, amount.toString().split(".")[0].length - 3)
-          .replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
-          "," +
-          amount
-            .toString()
-            .substring(amount.toString().split(".")[0].length - 3)
-      : amount.toString();
-  };
 
   const handleCalculate = (e: any) => {
     e.preventDefault();
     if (
-      loanAmount !== undefined &&
+      totalInvestment !== undefined &&
       interestRate !== undefined &&
       tenure !== undefined
     ) {
-      const emiAmount = calculateEMI(loanAmount, interestRate, tenure);
-      const totalPayableAmount = emiAmount * tenure * 12;
-      const totalInterest = totalPayableAmount - loanAmount;
-      setEMI(Math.round(emiAmount));
+      const fdReturns = calculateFDMaturityAmount(totalInvestment, interestRate, 1, tenure);
+      
+      const totalPayableAmount = fdReturns;
+      const totalInterest = totalPayableAmount - totalInvestment;
       setTotalLoanAmount(Math.round(totalPayableAmount));
       setTotalInterest(Math.round(totalInterest));
+      updateChart(totalInvestment, Math.floor(totalPayableAmount));
     }
+  };
+  const updateChart = (principal: number, interest: number) => {
+    new PieChart(
+      "#fd-chart",
+      {
+        series: [principal, interest],
+      },
+      {
+        donut: true,
+        donutWidth: 60,
+        startAngle: 270,
+        showLabel: true,
+      }
+    );
   };
 
   const handleResetForm = () => {
-    setLoanAmount(undefined);
+    setTotalInvestment(undefined);
     setInterestRate(undefined);
     setTenure(undefined);
     setTotalLoanAmount(undefined);
     setTotalInterest(undefined);
-    setEMI(0);
   };
 
-  const resetStatus = !loanAmount || !interestRate || !tenure;
+  const resetStatus = !totalInvestment || !interestRate || !tenure;
 
   return (
     <Section title="FD Calculator">
@@ -66,11 +69,11 @@ const FDCalculator = () => {
                   label="Principal Amount"
                   type="number"
                   labelProps={{ htmlFor: "principal amount" }}
-                  value={loanAmount !== undefined ? loanAmount : ""}
+                  value={totalInvestment !== undefined ? totalInvestment : ""}
                   id="principal"
                   unit="₹"
                   placeholder="20,00,000"
-                  onChange={(e) => setLoanAmount(parseFloat(e.target.value))}
+                  onChange={(e) => setTotalInvestment(parseFloat(e.target.value))}
                   required
                 />
 
@@ -122,12 +125,6 @@ const FDCalculator = () => {
 
             <CardResult>
               <div className="card-result-items">
-                <p className="text">Monthly EMI</p>
-                <h1 className="h1">
-                  {emi ? "₹" + formatAmountWithCommas(emi) : "-"}
-                </h1>
-              </div>
-              <div className="card-result-items">
                 <p className="text">Total Interest Payable</p>
                 <h1 className="h1">
                   {totalInterest
@@ -138,7 +135,7 @@ const FDCalculator = () => {
               <div className="card-result-items">
                 <p className="text">Principal Amount</p>
                 <h1 className="h1">
-                  {loanAmount ? "₹" + formatAmountWithCommas(loanAmount) : "-"}
+                  {totalInvestment ? "₹" + formatAmountWithCommas(totalInvestment) : "-"}
                 </h1>
               </div>
               <div className="card-result-items">
@@ -156,11 +153,52 @@ const FDCalculator = () => {
           <CardChart>
             <h2 className="mb-10 text-2xl font-semibold">Chart</h2>
             <div
-              id="chart"
+              id="fd-chart"
               className="w-60 h-60 mx-auto rounded-full font-black text-white"
             ></div>
           </CardChart>
         </CardBody>
+      </Card>
+      <Card>
+        <div>
+          <p>
+            A fixed deposit, a term investment option, is provided by various banks and NBFCs. 
+            These deposits generally propose a higher interest rate, subject to specific terms and conditions. 
+            The sum that is deposited in these accounts is held for a fixed duration, 
+            which can range from 7 days to 10 years.
+
+            To ascertain the interest and the total amount that will be acquired at maturity, 
+            an FD calculator can be utilized. This user-friendly tool is easily accessible on the Emininja website.
+          </p>
+        </div>
+        <div>
+          <h2>How can an FD calculator help you?</h2>
+          <p>
+          Calculating the maturity amount of a Fixed Deposit (FD) can prove to be a convoluted and arduous process.
+           However, an online FD calculator is a convenient tool that can simplify this process effortlessly.
+            The complexity of FD maturity calculations lies in the involvement of multiple variables.
+             A Fixed Deposit calculator, on the other hand, is designed to handle these intricacies and provide
+              accurate figures with just a single click. Its ability to simplify complex calculations can save you
+               a significant amount of time. Furthermore, a fixed deposit return calculator can prove to be 
+               invaluable when comparing the maturity amount and interest rates of FDs offered by different 
+               financial institutions. Armed with all the relevant figures, you can make an informed decision.
+          </p>
+        </div>
+        <div>
+          <h2>The formula to determine FD maturity amount</h2>
+          <p>
+              The methodology to ascertain the maturity amount of a fixed deposit (FD) is of paramount importance.
+               It is noteworthy that there are two types of FDs available, namely simple interest FD and compound
+                interest FD. For both of these types, Emininja has designed calculators to facilitate the calculation
+                 process.
+
+              In the case of a fixed deposit calculator for simple interest FD, 
+              the formula employed is M = P + (P x r x t/100), 
+              where P denotes the principal amount deposited, 
+              r signifies the rate of interest per annum, 
+              and t represents the tenure in years.
+          </p>
+        </div>
       </Card>
     </Section>
   );
