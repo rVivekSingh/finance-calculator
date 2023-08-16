@@ -187,7 +187,7 @@ const LoanCalculator = () => {
           you make informed choices.
         </p>
 
-        <h2 className="text-xl font-medium">Comprehensive Loan Calculators</h2>
+        <h2>Comprehensive Loan Calculators</h2>
         <p>
           Take the guesswork out of loan planning. Our loan calculators let you
           estimate your monthly payments, track interest rates, and determine
