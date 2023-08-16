@@ -178,7 +178,7 @@ const LoanCalculator = () => {
       </Card>
 
       <div className="pt-5">
-        <p className="h1">Welcome to eMininja Financial Calculators!</p>
+        <h2 >Welcome to eMininja Financial Calculators!</h2>
         <p>
           Welcome to EmiNinja Financial Calculators! Empower your financial
           decisions with our suite of easy-to-use and accurate financial

@@ -98,13 +98,15 @@ main {
 .card {
   @apply rounded-md p-5 text-white bg-gray-100 dark:bg-zinc-900 bg-clip-padding border border-gray-300 dark:border-zinc-700 mb-5 overflow-hidden;
 }
-
+.card-result {
+  @apply flex flex-col gap-4;
+}
 .card-result-items {
   @apply flex items-center justify-between;
 }
 
 .card-result-items .text {
-  @apply max-sm:text-sm text-slate-800 dark:text-gray-200;
+  @apply max-sm:text-sm text-slate-800 dark:text-gray-200 !m-0;
 }
 
 .card-result-items .h1 {
@@ -200,3 +202,4 @@ table tbody td {
 .ct-label {
   @apply !text-gray-50 !fill-gray-50;
 }
+

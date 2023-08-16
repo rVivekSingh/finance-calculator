@@ -72,7 +72,7 @@ const CardResult: React.FC<CardResultProps> = ({
 }) => {
   return (
     <div
-      className={`card-result flex flex-col gap-6 ${
+      className={`card-result ${
         className || ""
       }`}
       {...rest}
