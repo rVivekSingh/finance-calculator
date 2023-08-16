@@ -10,7 +10,7 @@ import Legend from "../Legend";
 
 const SIPCalculator = () => {
   const [investmentAmount, setInvestmentAmount] = useState<number | undefined>(
-    100000
+    25000
   );
   const [interestRate, setInterestRate] = useState<number | undefined>(8.5);
   const [tenure, setTenure] = useState<number | undefined>(10);
@@ -60,9 +60,9 @@ const SIPCalculator = () => {
   };
 
   const handleResetForm = () => {
-    setInvestmentAmount(undefined);
-    setInterestRate(undefined);
-    setTenure(undefined);
+    setInvestmentAmount(25000);
+    setInterestRate(8.5);
+    setTenure(10);
 
     setTotalInvestment(0);
     setTotalInterest(0);

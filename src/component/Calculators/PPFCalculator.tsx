@@ -7,6 +7,7 @@ import Button from "../Button";
 import { Card, CardBody, CardChart, CardForm, CardResult } from "../Card";
 import FormInput from "../FormInput";
 import Section from "../Section";
+import Legend from "../Legend";
 
 const PPFCalculator = () => {
   const [investment, setInvestment] = useState<number | undefined>(10000);
@@ -37,15 +38,29 @@ const PPFCalculator = () => {
       setTotalInvestment(investment * tenure);
       setTotalInterest(Math.round(ppfReturns - investment * tenure));
       setMaturityValue(Math.ceil(ppfReturns));
-      updateChart(totalInvestment, maturityValue);
+      
+      new PieChart(
+        "#ppf-chart",
+        {
+          series: [totalInvestment, maturityValue - (investment * tenure), maturityValue],
+        },
+        {
+          donut: true,
+          donutWidth: 60,
+          startAngle: 270,
+          showLabel: true,
+        }
+      );
     }
   };
 
-  const updateChart = (principal: number, interest: number) => {
+  const updateChart = (principal: number, totalValue: number) => {
+    console.log(principal, totalValue);
+    
     new PieChart(
       "#ppf-chart",
       {
-        series: [principal, interest],
+        series: [principal, totalValue-principal, totalValue],
       },
       {
         donut: true,
@@ -165,6 +180,16 @@ const PPFCalculator = () => {
               id="ppf-chart"
               className="w-60 h-60 mx-auto rounded-full font-black text-white"
             ></div>
+
+            <div className="mt-10 lg:pl-5">
+              {totalInterest && (
+                <>
+                  <Legend text="Invested amount" type="a" />
+                  <Legend text="Est. returns" type="b" />
+                  <Legend text="Total amount" type="c" />
+                </>
+              )}
+            </div>
           </CardChart>
         </CardBody>
       </Card>
