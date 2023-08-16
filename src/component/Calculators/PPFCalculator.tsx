@@ -43,7 +43,6 @@ const PPFCalculator = () => {
   };
 
   const updateChart = (principal: number, totalValue: number) => {
-    console.log(principal, totalValue);
     
     new PieChart(
       "#ppf-chart",

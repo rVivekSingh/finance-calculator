@@ -13,15 +13,15 @@ const Sidebar = () => {
       text: "Mutual Fund Returns Calculator",
       url: "/calculator/mf-calculator",
     },
-    {
+    /* {
       text: "Sukanya Samriddhi Yojana Calculator",
       url: "/calculator/ssy-calculator",
-    },
+    }, */
     { text: "PPF Calculator", url: "/calculator/ppf-calculator" },
-    { text: "EPF Calculator", url: "/calculator/epf-Calculator" },
+//    { text: "EPF Calculator", url: "/calculator/epf-Calculator" },
     { text: "FD Calculator", url: "/calculator/fd-calculator" },
-    { text: "RD Calculator", url: "/calculator/rd-calculator" },
-    { text: "SWP Calculator", url: "/calculator/swp-calculator" },
+    //{ text: "RD Calculator", url: "/calculator/rd-calculator" },
+   // { text: "SWP Calculator", url: "/calculator/swp-calculator" },
   ];
 
   return (

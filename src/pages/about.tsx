@@ -20,7 +20,7 @@ const developers = [
     },
   },
   {
-    name: "Vivek Singh Rathore",
+    name: "Vivek Singh Rathor",
     role: "Backend Developer",
     image: "/images/dev-2.png",
     icon: "😎",
@@ -42,9 +42,8 @@ const about = () => {
         <Section title="About Us">
           <div className="py-8">
             <p>
-              Welcome to our website dedicated to the art of calculating EMI! We
-              are a group of passionate individuals who are determined to assist
-              you in making well-informed financial choices.
+            We are a team of highly motivated professionals, driven by the enthusiasm to help you in making wise financial decisions. 
+            We're a team of super motivated folks, fueled by our passion to help you make smart financial choices.
             </p>
             <p>
               Our user-friendly loan calculator instrument has been crafted to
