@@ -7,7 +7,7 @@ import React from "react";
 
 const Home: NextPage = () => {
   return (
-    <SidebarLayout seo={{ title: "Loan Calculator", pathname: "/" }}>
+    <SidebarLayout seo={{ title: "Peronal Loan EMI Calculator", pathname: "/" }}>
       <LoanCalculator />
     </SidebarLayout>
   );

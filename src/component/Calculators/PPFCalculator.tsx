@@ -135,27 +135,27 @@ const PPFCalculator = () => {
             <CardResult>
               <div className="card-result-items">
                 <p className="text">Total Invested Amount</p>
-                <h1 className="h1">
+                <p className="h1">
                   {totalInvestment
                     ? "₹" + formatAmountWithCommas(totalInvestment)
                     : "-"}
-                </h1>
+                </p>
               </div>
               <div className="card-result-items">
                 <p className="text">Total Interest</p>
-                <h1 className="h1">
+                <p className="h1">
                   {totalInterest
                     ? "₹" + formatAmountWithCommas(totalInterest)
                     : "-"}
-                </h1>
+                </p>
               </div>
               <div className="card-result-items">
                 <p className="text">Maturity Value</p>
-                <h1 className="h1">
+                <p className="h1">
                   {maturityValue
                     ? "₹" + formatAmountWithCommas(maturityValue)
                     : "-"}
-                </h1>
+                </p>
               </div>
             </CardResult>
           </CardForm>

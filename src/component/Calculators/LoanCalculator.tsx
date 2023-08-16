@@ -128,31 +128,31 @@ const LoanCalculator = () => {
             <CardResult>
               <div className="card-result-items">
                 <p className="text">Monthly EMI</p>
-                <h1 className="h1">
+                <p className="h1">
                   {emi ? "₹" + formatAmountWithCommas(emi) : "-"}
-                </h1>
+                </p>
               </div>
               <div className="card-result-items">
                 <p className="text">Total Interest Payable</p>
-                <h1 className="h1">
+                <p className="h1">
                   {totalInterest
                     ? "₹" + formatAmountWithCommas(totalInterest)
                     : "-"}
-                </h1>
+                </p>
               </div>
               <div className="card-result-items">
                 <p className="text">Principal Amount</p>
-                <h1 className="h1">
+                <p className="h1">
                   {loanAmount ? "₹" + formatAmountWithCommas(loanAmount) : "-"}
-                </h1>
+                </p>
               </div>
               <div className="card-result-items">
                 <p className="text">Total Payable Amount</p>
-                <h1 className="h1">
+                <p className="h1">
                   {totalLoanAmount
                     ? "₹" + formatAmountWithCommas(totalLoanAmount)
                     : "-"}
-                </h1>
+                </p>
               </div>
             </CardResult>
           </CardForm>
@@ -178,7 +178,7 @@ const LoanCalculator = () => {
       </Card>
 
       <div className="pt-5">
-        <h1>Welcome to eMininja Financial Calculators!</h1>
+        <p className="h1">Welcome to eMininja Financial Calculators!</p>
         <p>
           Welcome to EmiNinja Financial Calculators! Empower your financial
           decisions with our suite of easy-to-use and accurate financial

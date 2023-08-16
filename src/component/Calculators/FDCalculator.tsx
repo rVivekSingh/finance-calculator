@@ -137,27 +137,27 @@ const FDCalculator = () => {
             <CardResult>
               <div className="card-result-items">
                 <p className="text">Total Interest Payable</p>
-                <h1 className="h1">
+                <p className="h1">
                   {totalInterest
                     ? "₹" + formatAmountWithCommas(totalInterest)
                     : "-"}
-                </h1>
+                </p>
               </div>
               <div className="card-result-items">
                 <p className="text">Principal Amount</p>
-                <h1 className="h1">
+                <p className="h1">
                   {totalInvestment
                     ? "₹" + formatAmountWithCommas(totalInvestment)
                     : "-"}
-                </h1>
+                </p>
               </div>
               <div className="card-result-items">
                 <p className="text">Total Payable Amount</p>
-                <h1 className="h1">
+                <p className="h1">
                   {totalLoanAmount
                     ? "₹" + formatAmountWithCommas(totalLoanAmount)
                     : "-"}
-                </h1>
+                </p>
               </div>
             </CardResult>
           </CardForm>
