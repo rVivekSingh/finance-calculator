@@ -38,19 +38,7 @@ const PPFCalculator = () => {
       setTotalInvestment(investment * tenure);
       setTotalInterest(Math.round(ppfReturns - investment * tenure));
       setMaturityValue(Math.ceil(ppfReturns));
-      
-      new PieChart(
-        "#ppf-chart",
-        {
-          series: [totalInvestment, maturityValue - (investment * tenure), maturityValue],
-        },
-        {
-          donut: true,
-          donutWidth: 60,
-          startAngle: 270,
-          showLabel: true,
-        }
-      );
+      updateChart(investment * tenure, Math.ceil(ppfReturns));
     }
   };
 
