@@ -157,9 +157,10 @@ const SWPCalculator = () => {
             </CardResult>
           </CardForm>
         </CardBody>
-      </Card>{" "}
-      <br />
-      <Card>
+      </Card>
+
+      <div className="pt-5">
+        <h1>SWP (Systematic Withdrawal Plan) calculator</h1>
         <p>
           A SWP (Systematic Withdrawal Plan) calculator is a powerful financial
           tool designed to assist investors in planning and managing their
@@ -185,81 +186,70 @@ const SWPCalculator = () => {
           strike the right balance between maintaining their investment&apos;s
           value and fulfilling their income needs.
         </p>
-        <div>
-          <p>The SWP calculator empowers users to:</p>
+        <h2>The SWP calculator empowers users to:</h2>
+        <p>
+          Plan for Retirement: Determine the most appropriate withdrawal
+          strategy during retirement, ensuring a comfortable and secure
+          post-retirement life.
+        </p>
+        <p>
+          Manage Income Streams: Create a structured approach to generating
+          regular income from investments, avoiding over or under withdrawals.
+        </p>
+        <p>
+          Set Financial Goals: Use the calculator to plan for major life events
+          such as education expenses, home purchases, or travel plans, while
+          considering the impact on investment holdings.
+        </p>
+        <p>
+          Optimize Withdrawals: Assess the impact of different withdrawal
+          frequencies or investment periods to identify the most suitable
+          strategy.
+        </p>
+        <p>
+          While the SWP calculator provides valuable estimates, it is essential
+          to remember that actual investment performance and market fluctuations
+          may affect the real-world outcomes. Therefore, investors should
+          approach SWP planning holistically, taking into account other
+          financial factors and seeking advice from financial professionals if
+          needed.
+        </p>
+        <p>
+          In summary, a SWP calculator empowers investors to make informed
+          decisions regarding their investments and financial goals. By offering
+          a clear picture of the withdrawal process, it serves as a valuable
+          tool in achieving long-term financial security and planning for a
+          prosperous future.
+        </p>
 
-          <p>
-            Plan for Retirement: Determine the most appropriate withdrawal
-            strategy during retirement, ensuring a comfortable and secure
-            post-retirement life.
-          </p>
+        <h2>How to calculate SWP Amount</h2>
 
-          <p>
-            Manage Income Streams: Create a structured approach to generating
-            regular income from investments, avoiding over or under withdrawals.
-          </p>
-
-          <p>
-            Set Financial Goals: Use the calculator to plan for major life
-            events such as education expenses, home purchases, or travel plans,
-            while considering the impact on investment holdings.
-          </p>
-
-          <p>
-            Optimize Withdrawals: Assess the impact of different withdrawal
-            frequencies or investment periods to identify the most suitable
-            strategy.
-          </p>
-
-          <p>
-            While the SWP calculator provides valuable estimates, it is
-            essential to remember that actual investment performance and market
-            fluctuations may affect the real-world outcomes. Therefore,
-            investors should approach SWP planning holistically, taking into
-            account other financial factors and seeking advice from financial
-            professionals if needed.
-          </p>
-
-          <p>
-            In summary, a SWP calculator empowers investors to make informed
-            decisions regarding their investments and financial goals. By
-            offering a clear picture of the withdrawal process, it serves as a
-            valuable tool in achieving long-term financial security and planning
-            for a prosperous future.
-          </p>
-        </div>
-        <div>
-          <h2 className="my-5 text-xl">How to calculate SWP Amount</h2>
-          <div>
-            <p className="!text-blue-500">
-              SWP Amount = (Initial Investment / Withdrawal Frequency) + (Annual
-              Growth Rate / 100) * Initial Investment
-            </p>
-            <p>Explanation:</p>
-
-            <p>
-              &quot;SWP Amount&quot; represents the periodic amount that can be
-              withdrawn from the investment portfolio.
-            </p>
-
-            <p>
-              &quot;Initial Investment&quot; is the total amount initially
-              invested in the portfolio.
-            </p>
-
-            <p>
-              &quot;Withdrawal Frequency&quot; refers to how often you plan to
-              make withdrawals (e.g., monthly, quarterly, annually).
-            </p>
-
-            <p>
-              &quot;Annual Growth Rate&quot; is the expected annual growth rate
-              of the investment. This part is optional and can be omitted if no
-              growth rate is considered.
-            </p>
-          </div>
-        </div>
-      </Card>
+        <p className="highlight">
+          <code>
+            SWP Amount = (Initial Investment / Withdrawal Frequency) + (Annual
+            Growth Rate / 100) * Initial Investment
+          </code>
+        </p>
+        <h2>Explanation:</h2>
+        <p>
+          <span className="text-red-400">SWP Amount</span> represents the
+          periodic amount that can be withdrawn from the investment portfolio.
+        </p>
+        <p>
+          <span className="text-red-400">Initial Investment</span> is the total
+          amount initially invested in the portfolio.
+        </p>
+        <p>
+          <span className="text-red-400">Withdrawal Frequency</span> refers to
+          how often you plan to make withdrawals (e.g., monthly, quarterly,
+          annually).
+        </p>
+        <p>
+          <span className="text-red-400">Annual Growth Rate</span> is the
+          expected annual growth rate of the investment. This part is optional
+          and can be omitted if no growth rate is considered.
+        </p>
+      </div>
     </Section>
   );
 };

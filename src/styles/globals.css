@@ -20,7 +20,23 @@ h1,
 h2,
 h3,
 h4 {
-  @apply text-slate-800 dark:text-gray-100 font-medium;
+  @apply text-slate-800 dark:text-gray-100 font-medium mb-4;
+}
+
+h1 {
+  @apply text-2xl;
+}
+
+h2 {
+  @apply text-xl;
+}
+
+/* h3 {
+  @apply text-lg;
+} */
+
+h4 {
+  @apply text-base;
 }
 
 p {
@@ -43,10 +59,6 @@ main {
   @apply md:w-[calc(100%-310px)] lg:w-[calc(100%-380px)];
 }
 
-.sidebar {
-  @apply sticky h-max top-32 w-full md:w-[280px] lg:w-[350px] mt-10 md:mt-[75px] lg:mt-[116px] flex flex-col gap-8;
-}
-
 .header {
   @apply flex sticky top-0 z-50 border-b border-gray-700 bg-gray-900;
 }
@@ -55,12 +67,16 @@ main {
   @apply w-full transition md:w-auto max-md:w-full max-md:absolute max-md:left-0 max-md:top-[80px] z-20 max-md:bg-slate-900 max-md:border-t duration-200 origin-top max-md:border-t-gray-700 md:flex-row;
 }
 
+.sidebar {
+  @apply sticky h-max top-32 w-full md:w-[280px] lg:w-[350px] mt-10 md:mt-[75px] lg:mt-[116px] flex flex-col gap-8;
+}
+
 .sidebar-block-title {
-  @apply text-lg tracking-wider font-semibold p-3 border-b border-slate-400 text-slate-800 dark:text-gray-200;
+  @apply text-lg tracking-wider font-semibold p-3 border-b border-gray-300 dark:border-slate-400 text-slate-800 dark:text-gray-200 bg-gray-200 dark:bg-zinc-700;
 }
 
 .sidebar-block-link {
-  @apply block tracking-wider text-sm lg:text-base lg:hover:bg-blue-600/50 lg:hover:text-gray-200 transition duration-75 hover:duration-100 ease-in p-3 border-b border-dashed last:border-0 border-slate-400 text-slate-800 dark:text-gray-200;
+  @apply block tracking-wider text-sm lg:text-base lg:hover:bg-blue-600/50 lg:hover:text-gray-200 transition duration-75 hover:duration-100 ease-in p-3 border-b border-dashed last:border-0 border-slate-400 dark:border-slate-500 text-slate-800 dark:text-gray-200;
 }
 
 .label {
@@ -76,11 +92,11 @@ main {
 }
 
 .input-field {
-  @apply px-3 py-2 w-full flex pr-7 outline-none ring-1 ring-gray-500 font-medium focus:ring-2 focus:ring-inset focus:ring-blue-500 text-slate-800 dark:text-gray-200 disabled:cursor-not-allowed disabled:bg-gray-300 rounded;
+  @apply px-3 py-2 w-full flex pr-7 outline-none ring-1 font-medium focus:ring-2 focus:ring-inset focus:ring-blue-500 text-slate-800 dark:text-gray-200 disabled:cursor-not-allowed disabled:bg-gray-300 rounded;
 }
 
 .card {
-  @apply rounded-md p-5 text-white dark:bg-zinc-900 bg-clip-padding border  bg-gray-200 border-gray-300 dark:border-zinc-700;
+  @apply rounded-md p-5 text-white bg-gray-100 dark:bg-zinc-900 bg-clip-padding border border-gray-300 dark:border-zinc-700 mb-5 overflow-hidden;
 }
 
 .card-result-items {
@@ -92,7 +108,7 @@ main {
 }
 
 .card-result-items .h1 {
-  @apply text-xl font-medium text-slate-800 dark:text-gray-200;
+  @apply text-xl m-0 font-medium text-slate-800 dark:text-gray-200;
 }
 
 .para {
@@ -131,4 +147,56 @@ main {
   100% {
     width: 0;
   }
+}
+
+.highlight {
+  @apply !text-blue-700 dark:!text-orange-500;
+}
+
+code {
+  @apply p-4 border dark:border-slate-600 my-3 block bg-gray-100 dark:bg-slate-800 rounded-md;
+}
+
+table {
+  @apply min-w-full leading-normal border dark:border-gray-800 bg-gray-100 dark:bg-slate-800;
+}
+
+table thead th {
+  @apply px-3 py-3 border dark:border-gray-600 text-left font-medium tracking-wider;
+}
+
+table tbody td {
+  @apply px-3 py-2 border dark:border-gray-600;
+}
+
+.ct-series-a .ct-slice-donut {
+  @apply !stroke-blue-500;
+}
+
+.ct-series-b .ct-slice-donut {
+  @apply !stroke-pink-500;
+}
+
+.ct-series-c .ct-slice-donut {
+  @apply !stroke-cyan-500;
+}
+
+.legend span {
+  @apply inline-block w-4 h-4 rounded-sm;
+}
+
+.type-a {
+  @apply bg-blue-500;
+}
+
+.type-b {
+  @apply bg-pink-500;
+}
+
+.type-c {
+  @apply bg-cyan-500;
+}
+
+.ct-label {
+  @apply !text-gray-50 !fill-gray-50;
 }

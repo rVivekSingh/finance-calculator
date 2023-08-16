@@ -42,23 +42,33 @@ const about = () => {
         <Section title="About Us">
           <div className="py-8">
             <p>
-              Welcome to our website dedicated to the art of calculating EMI! 
-              We are a group of passionate individuals who are determined to assist you in making well-informed financial choices.
+              Welcome to our website dedicated to the art of calculating EMI! We
+              are a group of passionate individuals who are determined to assist
+              you in making well-informed financial choices.
             </p>
             <p>
-             Our user-friendly loan calculator instrument has been crafted to aid you in approximating your monthly loan payments, 
-             interest rates, and loan provisions. Whether you are contemplating purchasing a car, a house, or simply necessitate a personal loan, 
-             our calculator is adept at facilitating you to scrutinize the figures.
+              Our user-friendly loan calculator instrument has been crafted to
+              aid you in approximating your monthly loan payments, interest
+              rates, and loan provisions. Whether you are contemplating
+              purchasing a car, a house, or simply necessitate a personal loan,
+              our calculator is adept at facilitating you to scrutinize the
+              figures.
             </p>
             <p>
-              At the core of our beliefs lies the recognition that financial planning can be a labyrinthine journey, 
-              fraught with intricacies and complexities that can leave even the most seasoned of individuals feeling overwhelmed and lost. 
-              Our mission, therefore, is to act as your guide through these murky waters, simplifying the process and illuminating the way forward.
-               We invite you to peruse our website at your leisure, utilizing our invaluable loan calculator, 
-               and should you require any further assistance or wish to impart feedback, please do not hesitate to contact us.
+              At the core of our beliefs lies the recognition that financial
+              planning can be a labyrinthine journey, fraught with intricacies
+              and complexities that can leave even the most seasoned of
+              individuals feeling overwhelmed and lost. Our mission, therefore,
+              is to act as your guide through these murky waters, simplifying
+              the process and illuminating the way forward. We invite you to
+              peruse our website at your leisure, utilizing our invaluable loan
+              calculator, and should you require any further assistance or wish
+              to impart feedback, please do not hesitate to contact us.
             </p>
             <p>
-             Thank you for selecting us as your trusted financial comrade. We eagerly anticipate rendering our aid as you voyage towards a fortified and stable financial horizon.
+              Thank you for selecting us as your trusted financial comrade. We
+              eagerly anticipate rendering our aid as you voyage towards a
+              fortified and stable financial horizon.
             </p>
 
             <div className="mt-8 pt-7">

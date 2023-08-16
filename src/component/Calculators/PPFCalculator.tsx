@@ -31,7 +31,7 @@ const PPFCalculator = () => {
         tenure
       );
 
-      const totalPayableAmount = ppfReturns * tenure * 12;
+      // const totalPayableAmount = ppfReturns * tenure * 12;
       // const totalInterest = totalPayableAmount - investment;
 
       setTotalInvestment(investment * tenure);
@@ -168,77 +168,85 @@ const PPFCalculator = () => {
           </CardChart>
         </CardBody>
       </Card>
-      <Card>
-        <div>
-           <p>
-              The initial step towards wealth management involves the accumulation of savings. Numerous savings account options exist; 
-              however, it is advisable to seek out those that offer significant returns without risk. 
-              PPF accounts are one of the most prevalent options available. PPF, which stands for 
-              Public Provident Fund, is a vehicle designed to invest your valuable capital.
+      <div className="pt-5">
+        <p>
+          The initial step towards wealth management involves the accumulation
+          of savings. Numerous savings account options exist; however, it is
+          advisable to seek out those that offer significant returns without
+          risk. PPF accounts are one of the most prevalent options available.
+          PPF, which stands for Public Provident Fund, is a vehicle designed to
+          invest your valuable capital. For new employees or responsible parents
+          looking to save for the future, PPF is an ideal choice. Calculating
+          interest rates and returns for your PPF account can be challenging.
+          Fortunately, a PPF account calculator can simplify these complex
+          calculations.
+        </p>
+        <h2>How can a PPF calculator help you?</h2>
+        <p>
+          This financial instrument offers a comprehensive solution to address
+          all concerns related to the Public Provident Fund account. There are
+          certain stipulations that must be strictly adhered to when computing
+          the maturity amount after a stipulated period of time. It facilitates
+          the monitoring of capital growth. Those who possess a PPF savings
+          account are well aware that interest rates are subject to monthly
+          revisions. In the present day and age, keeping tabs on the constantly
+          fluctuating interest rates has become relatively easier. However, with
+          the advent of the public provident fund calculator, account holders
+          find it simpler to determine the monthly alterations made to the rate
+          of interest. In the market, there are several user-friendly PPF
+          calculators available, and for selecting a reliable one, EmiNinja is
+          undoubtedly the optimal choice.
+        </p>
+        <h2>Formula used for calculating PPF</h2>
+        <p>
+          Emininja employs a comprehensive algorithm to calculate the sum of
+          money deposited, interest charges, and other related factors. The
+          formula in question is as follows -
+        </p>
+        <p className="highlight">
+          <code>
+            F = P &#123;({" "}
+            <sup>
+              {"("}
+              (1+i)
+              <sup>n</sup> - 1{")"}
+            </sup>{" "}
+            / i) &#125;
+          </code>
+        </p>
 
-              For new employees or responsible parents looking to save for the future, 
-              PPF is an ideal choice. Calculating interest rates and returns for your PPF account can be challenging. 
-              Fortunately, a PPF account calculator can simplify these complex calculations.
-           </p>
-        </div>
-        <div>
-        How can a PPF calculator help you?
-          <p>
-            This financial instrument offers a comprehensive solution to address all concerns related to the Public Provident Fund account. 
-            There are certain stipulations that must be strictly adhered to when computing the maturity amount after a stipulated period of time. 
-            It facilitates the monitoring of capital growth. 
-            Those who possess a PPF savings account are well aware that interest rates are subject to monthly revisions.
+        <p className="mb-4">
+          This mathematical expression serves to denote the subsequent variables
+          -
+        </p>
 
-            In the present day and age, keeping tabs on the constantly fluctuating interest rates has become relatively easier.
-             However, with the advent of the public provident fund calculator, account holders find it simpler to determine the 
-             monthly alterations made to the rate of interest. In the market, there are several user-friendly PPF calculators available, 
-             and for selecting a reliable one, EmiNinja is undoubtedly the optimal choice.
-          </p>
-        </div>
-        <div>
-           Formula used for calculating PPF
-           
-           <p>
-              Emininja employs a comprehensive algorithm to calculate the sum of money deposited, interest charges, and other related factors. 
-              The formula in question is as follows -
-
-              <p>
-                F = P &#123;({' '}
-                <sup>
-                  {'('}
-                  (1+i)
-                  <sup>n</sup> - 1
-                  {')'}
-                </sup>{' '}
-                / i) &#125;
-              </p>
-
-              This mathematical expression serves to denote the subsequent variables -
-           </p>
-           <table>
-              <tr>
-                  <th>Variable</th>
-                  <th>Description</th>
-              </tr>
-              <tr>
-                  <td>I</td>
-                  <td>Rate of interest</td>
-              </tr>
-              <tr>
-                  <td>P</td>
-                  <td>Annual instalments</td>
-              </tr>
-              <tr>
-                  <td>F</td>
-                  <td>Maturity of PPF</td>
-              </tr>
-              <tr>
-                  <td>N</td>
-                  <td>Total number of years</td>
-              </tr>
-          </table>
-        </div>
-      </Card>
+        <table>
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>I</td>
+              <td>Rate of interest</td>
+            </tr>
+            <tr>
+              <td>P</td>
+              <td>Annual instalments</td>
+            </tr>
+            <tr>
+              <td>F</td>
+              <td>Maturity of PPF</td>
+            </tr>
+            <tr>
+              <td>N</td>
+              <td>Total number of years</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </Section>
   );
 };

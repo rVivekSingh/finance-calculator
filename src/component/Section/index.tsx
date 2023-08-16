@@ -11,7 +11,7 @@ const Section = ({ children, title, className }: SectionProps) => {
     <section className={`pt-6 lg:pt-14 w-full ${className || ""}`}>
       {title && (
         <h1
-          className={`font-medium pb-6 text-slate-800 dark:text-gray-200 text-xl lg:text-3xl`}
+          className={`font-medium pb-6 m-0 text-slate-800 dark:text-gray-200 text-xl lg:text-3xl`}
         >
           {title}
         </h1>
