@@ -1,9 +1,9 @@
 import React, { ChangeEvent, CSSProperties, LabelHTMLAttributes } from "react";
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface TextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   value: any;
-  unit?: string;
   className?: string;
   optional?: string;
   required?: boolean;
@@ -12,13 +12,12 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   inputStyle?: CSSProperties;
   labelProps?: LabelHTMLAttributes<HTMLLabelElement>;
   disabled?: boolean;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const FormInput = ({
+const Textarea = ({
   label,
   value,
-  unit,
   className,
   optional,
   required,
@@ -29,7 +28,7 @@ const FormInput = ({
   disabled,
   onChange,
   ...rest
-}: InputProps) => {
+}: TextareaProps) => {
   return (
     <div className={`input-group`}>
       {label && (
@@ -40,21 +39,16 @@ const FormInput = ({
         </label>
       )}
       <div className="relative overflow-hidden rounded">
-        <input
+        <textarea
           value={value}
-          className={`input-field ${unit && "!pr-9"} ${className || ""}`}
+          className={`input-field ${className || ""}`}
           style={inputStyle}
           onChange={onChange}
           required={required}
           disabled={disabled}
+          rows={5}
           {...rest}
         />
-
-        {unit && (
-          <div className="absolute inset-y-2 flex items-center right-2 w-7 justify-center font-medium text-lg text-slate-800 dark:text-gray-200">
-            {unit}
-          </div>
-        )}
       </div>
 
       {error && <p className="text-sm text-red-700 mt-1">{error}</p>}
@@ -62,4 +56,4 @@ const FormInput = ({
   );
 };
 
-export default FormInput;
+export default Textarea;

@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import Container from "../Container";
 import Seo, { ISeoProps } from "../Seo";
 import Footer from "./Footer";
 import Header from "./Header";

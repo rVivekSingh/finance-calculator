@@ -1,6 +1,6 @@
-import BannerSection from "@/component/About/BannerSection";
+import { BannerImage } from "@/component/BannerImage";
 import Container from "@/component/Container";
-import Layout from "@/component/Layout/Layout";
+import Layout from "@/component/Layout";
 import Section from "@/component/Section";
 import Image from "next/image";
 import React from "react";
@@ -37,13 +37,15 @@ const about = () => {
   return (
     <Layout seo={{ title: "EmiNinja | Emi Calculators", pathname: "/about" }}>
       <Container>
-        <BannerSection />
+        <BannerImage className="mt-8 lg:mt-12" imageUrl="/images/banner-1.png" />
 
         <Section title="About Us">
           <div className="py-8">
             <p>
-            We are a team of highly motivated professionals, driven by the enthusiasm to help you in making wise financial decisions. 
-            We&apos;re a team of super motivated folks, fueled by our passion to help you make smart financial choices.
+              We are a team of highly motivated professionals, driven by the
+              enthusiasm to help you in making wise financial decisions.
+              We&apos;re a team of super motivated folks, fueled by our passion
+              to help you make smart financial choices.
             </p>
             <p>
               Our user-friendly loan calculator instrument has been crafted to
