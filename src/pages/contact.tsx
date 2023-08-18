@@ -13,11 +13,7 @@ const contact = () => {
           imageUrl="/images/contact-banner-image.png"
         />
 
-        <div>
-          <div>
-            <FormSection />
-          </div>
-        </div>
+        <FormSection />
       </Container>
     </Layout>
   );

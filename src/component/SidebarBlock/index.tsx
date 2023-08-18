@@ -22,7 +22,7 @@ const SidebarBlock: React.FC<Props> = ({ title, data, render }) => {
     return (
       <Link
         className={`sidebar-block-link ${
-          router.asPath === item.url ? "bg-blue-500 dark:bg-blue-500 !text-gray-200" : ""
+          router.asPath === item.url ? "bg-blue-600/40" : ""
         }`}
         key={index}
         href={item.url}

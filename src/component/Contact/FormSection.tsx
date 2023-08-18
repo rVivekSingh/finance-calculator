@@ -4,6 +4,7 @@ import { FaPaperPlane } from "react-icons/fa";
 import Button from "../Button";
 import { Card, CardBody } from "../Card";
 import FormInput from "../FormInput";
+import Section from "../Section";
 import Textarea from "../Textarea";
 
 const FormSection = () => {
@@ -23,19 +24,13 @@ const FormSection = () => {
     setMessage(e.currentTarget.value);
   };
 
-  console.log("name: ", name);
-  console.log("email: ", email);
-  console.log("message: ", message);
-
   return (
-    <section className="py-10 lg:py-16">
-      <div className="grid md:grid-cols-2 gap-8">
-        <div>
-          <div>
-            <p className="text-3xl  dark:text-white leading-[46px] mb-14">
-              Have a question? <br /> Let&apos;s get in touch
-            </p>
-          </div>
+    <Section>
+      <p className="text-3xl dark:text-white font-medium leading-[46px] mb-14">
+        Have a question? <br /> Let&apos;s get in touch
+      </p>
+      <div className="grid md:grid-cols-2 items-center gap-8">
+        <div className="lg:pr-10">
           <form autoComplete="off">
             <div>
               <FormInput
@@ -77,8 +72,8 @@ const FormSection = () => {
           </form>
         </div>
 
-        <div className="max-sm:hidden">
-          <div className="relative  md:w-96 md:h-full mx-auto">
+        <div className="max-md:hidden">
+          <div className="relative md:w-96 md:h-96 mx-auto">
             <Image
               src="/images/Work-removebg-preview.png"
               fill
@@ -88,7 +83,7 @@ const FormSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
 
