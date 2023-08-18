@@ -13,7 +13,7 @@
 }
 
 body {
-  @apply max-lg:text-sm bg-white dark:bg-zinc-950 font-Ubuntu text-gray-900 dark:text-gray-200;
+  @apply max-lg:text-sm bg-white dark:bg-zinc-950 z-10 font-Ubuntu text-gray-900 dark:text-gray-200;
 }
 
 h1,
@@ -51,9 +51,9 @@ p:not(:last-of-type) {
   @apply w-full;
 }
 
-/* main {
-  @apply pb-14;
-} */
+main {
+  @apply bg-white dark:bg-zinc-950 z-10;
+}
 
 .sidebar-layout main {
   @apply md:w-[calc(100%-310px)] lg:w-[calc(100%-380px)];
@@ -155,15 +155,15 @@ p:not(:last-of-type) {
 }
 
 code {
-  @apply p-4 border dark:border-slate-600 my-3 block bg-[#f7f7f7] dark:bg-slate-800 rounded-md;
+  @apply p-4 border dark:border-zinc-700 my-3 block bg-[#f7f7f7] dark:bg-zinc-900 rounded-md;
 }
 
 table {
-  @apply min-w-full leading-normal border dark:border-gray-800 bg-[#f7f7f7] dark:bg-slate-800 rounded-md border-separate border-spacing-0;
+  @apply min-w-full leading-normal dark:border-zinc-700 bg-[#f7f7f7] dark:bg-zinc-900 rounded-md border-separate border-spacing-0;
 }
 
 table thead th {
-  @apply px-3 py-3 dark:border-gray-600 text-left font-medium tracking-wider first:rounded-tl-md border-b-0 last:rounded-tr-md border only:rounded-t-md;
+  @apply px-3 py-3 dark:border-zinc-700 text-left font-medium tracking-wider first:rounded-tl-md border-b-0 last:rounded-tr-md border only:rounded-t-md;
 }
 
 table tbody tr:last-child td {
@@ -171,7 +171,7 @@ table tbody tr:last-child td {
 }
 
 table tbody td {
-  @apply px-3 py-2 border dark:border-gray-600 border-b-0;
+  @apply px-3 py-2 border dark:border-zinc-700 border-b-0;
 }
 
 table th:not(:first-child),
@@ -209,4 +209,78 @@ table td:not(:first-child) {
 
 .ct-label {
   @apply !text-gray-50 !fill-gray-50;
+}
+
+.card-after {
+  @apply after:absolute after:w-32 after:h-44 after:rounded-full after:-top-16 after:-right-10 lg:hover:after:w-[400px] lg:hover:after:h-[400px] after:transition-all after:duration-200 after:shadow-sm after:shadow-slate-200 after:ease-in z-10 after:-z-10;
+}
+
+.color-a {
+  @apply bg-orange-300 border-orange-500  shadow-orange-400/40 after:bg-orange-500/10;
+}
+.text-color-a {
+  @apply !text-orange-600;
+}
+
+.color-b {
+  @apply bg-sky-300 border-sky-500 shadow-sky-400/40 after:bg-sky-500/10;
+}
+.text-color-b {
+  @apply !text-sky-600;
+}
+
+.color-c {
+  @apply bg-pink-300 border-pink-500 shadow-pink-400/40 after:bg-pink-500/10;
+}
+.text-color-c {
+  @apply !text-pink-600;
+}
+
+.color-d {
+  @apply bg-emerald-300 border-emerald-500 shadow-emerald-400/40 after:bg-emerald-500/10;
+}
+.text-color-d {
+  @apply !text-emerald-600;
+}
+
+.color-e {
+  @apply bg-purple-300 border-purple-500 shadow-purple-400/40 after:bg-purple-500/10;
+}
+.text-color-e {
+  @apply !text-purple-600;
+}
+
+.color-f {
+  @apply bg-rose-300 border-rose-500 shadow-rose-400/40 after:bg-rose-500/10;
+}
+.text-color-f {
+  @apply !text-rose-600;
+}
+
+.color-g {
+  @apply bg-yellow-300 border-yellow-500 shadow-yellow-400/40 after:bg-yellow-500/10;
+}
+.text-color-g {
+  @apply !text-yellow-600;
+}
+
+.color-h {
+  @apply bg-lime-300 border-lime-500 shadow-lime-400/40 after:bg-lime-500/10;
+}
+.text-color-h {
+  @apply !text-lime-600;
+}
+
+.color-i {
+  @apply bg-blue-300 border-blue-500 shadow-blue-400/40 after:bg-blue-500/10;
+}
+.text-color-i {
+  @apply !text-blue-600;
+}
+
+.color-j {
+  @apply bg-teal-300 border-teal-500 shadow-teal-400/40 after:bg-teal-500/10;
+}
+.text-color-j {
+  @apply !text-teal-600;
 }
