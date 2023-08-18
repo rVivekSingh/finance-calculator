@@ -13,7 +13,7 @@ function Footer({}: Props) {
     <footer className="relative bg-gray-900 text-gray-200">
       <nav className="px-4 py-10 md:py-16">
         <Container>
-          <div className="grid grid-cols-4 gap-8">
+          <div className="grid lg:grid-cols-4 gap-8">
             <div className="col-span-2">
               <Link href="/" className="flex items-center">
                 <Image
@@ -39,7 +39,12 @@ function Footer({}: Props) {
               {navItems.map(({ name, url }) => {
                 return (
                   <p key={name}>
-                    <Link href={url} className='text-gray-200 hover:text-blue-500'>{name}</Link>
+                    <Link
+                      href={url}
+                      className="text-gray-200 hover:text-blue-500"
+                    >
+                      {name}
+                    </Link>
                   </p>
                 );
               })}
@@ -50,10 +55,9 @@ function Footer({}: Props) {
         </Container>
       </nav>
       <nav className="p-4 bg-gray-800 text-center md:p-5">
-        <span className="flex items-center justify-center  sm:text-center">
-          <FaCopyright className="mr-1" /> 2022 - {new Date().getFullYear()}{" "}
-          EmiNinja. All Rights Reserved, Built with{" "}
-          <span className="mx-2">❤️</span> in India
+        <span className="flex md:items-center md:justify-center sm:text-center">
+          &copy; 2022 - {new Date().getFullYear()} EmiNinja. All Rights
+          Reserved, Built with in India
         </span>
       </nav>
     </footer>
