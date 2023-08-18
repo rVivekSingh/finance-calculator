@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -13,7 +13,7 @@
 }
 
 body {
-  @apply bg-gray-50 dark:bg-zinc-950 font-Ubuntu text-gray-900 dark:text-gray-200;
+  @apply max-lg:text-sm bg-white dark:bg-zinc-950 font-Ubuntu text-gray-900 dark:text-gray-200;
 }
 
 h1,
@@ -40,7 +40,7 @@ h4 {
 }
 
 p {
-  @apply text-gray-900 dark:text-gray-300;
+  @apply text-gray-900 dark:text-gray-300 font-normal;
 }
 
 p:not(:last-of-type) {
@@ -51,9 +51,9 @@ p:not(:last-of-type) {
   @apply w-full;
 }
 
-main {
+/* main {
   @apply pb-14;
-}
+} */
 
 .sidebar-layout main {
   @apply md:w-[calc(100%-310px)] lg:w-[calc(100%-380px)];
@@ -68,15 +68,15 @@ main {
 }
 
 .sidebar {
-  @apply sticky h-max top-32 w-full md:w-[280px] lg:w-[350px] mt-10 md:mt-[75px] lg:mt-[116px] flex flex-col gap-8;
+  @apply sticky h-max top-32 w-full md:w-[280px] lg:w-[350px] mt-10 md:mt-[91px] lg:mt-[125px] flex flex-col gap-8;
 }
 
 .sidebar-block-title {
-  @apply text-lg tracking-wider font-semibold p-3 border-b border-gray-300 dark:border-slate-400 text-slate-800 dark:text-gray-200 bg-gray-200 dark:bg-zinc-700;
+  @apply text-lg tracking-wider font-medium p-3 border-b border-gray-300 dark:border-slate-400 text-slate-800 dark:text-gray-200 bg-gray-200 dark:bg-zinc-700;
 }
 
 .sidebar-block-link {
-  @apply block tracking-wider text-sm lg:text-base lg:hover:bg-blue-600/50 lg:hover:text-gray-200 transition duration-75 hover:duration-100 ease-in p-3 border-b border-dashed last:border-0 border-slate-400 dark:border-slate-500 text-slate-800 dark:text-gray-200;
+  @apply block tracking-wider text-sm lg:text-base lg:hover:bg-blue-600/40 transition duration-75 hover:duration-100 ease-in p-3 py-[10px] border-b border-dashed last:border-0 border-slate-400 dark:border-slate-500 text-slate-800 dark:text-gray-200;
 }
 
 .label {
@@ -92,15 +92,21 @@ main {
 }
 
 .input-field {
-  @apply px-3 py-2 w-full flex pr-7 outline-none ring-1 font-medium focus:ring-2 focus:ring-inset focus:ring-blue-500 text-slate-800 dark:text-gray-200 disabled:cursor-not-allowed disabled:bg-gray-300 rounded;
+  @apply px-3 py-2 w-full flex outline-none focus:ring-1 focus:ring-inset focus:ring-blue-500 text-slate-800 dark:text-gray-200 disabled:cursor-not-allowed disabled:bg-gray-300 dark:disabled:bg-gray-500 rounded;
 }
 
 .card {
-  @apply rounded-md p-5 text-white bg-gray-100 dark:bg-zinc-900 bg-clip-padding border border-gray-300 dark:border-zinc-700 mb-5 overflow-hidden;
+  @apply rounded-md text-white bg-[#f7f7f7] dark:bg-zinc-900 bg-clip-padding border dark:border-zinc-700 mb-5 overflow-hidden;
 }
+
+.card-body {
+  @apply p-5;
+}
+
 .card-result {
   @apply flex flex-col gap-4;
 }
+
 .card-result-items {
   @apply flex items-center justify-between;
 }
@@ -118,15 +124,8 @@ main {
 }
 
 .dev-image-clip {
-  @apply h-full relative w-[210px] max-xl:w-full;
-  clip-path: circle(100.2% at 0 53%);
+  @apply h-full relative w-[210px] max-xl:w-full rounded-md overflow-hidden;
   flex: 0 0 210px;
-}
-
-@media (max-width: 1280px) {
-  .dev-image-clip {
-    clip-path: none;
-  }
 }
 
 .social-links a {
@@ -156,19 +155,28 @@ main {
 }
 
 code {
-  @apply p-4 border dark:border-slate-600 my-3 block bg-gray-100 dark:bg-slate-800 rounded-md;
+  @apply p-4 border dark:border-slate-600 my-3 block bg-[#f7f7f7] dark:bg-slate-800 rounded-md;
 }
 
 table {
-  @apply min-w-full leading-normal border dark:border-gray-800 bg-gray-100 dark:bg-slate-800;
+  @apply min-w-full leading-normal border dark:border-gray-800 bg-[#f7f7f7] dark:bg-slate-800 rounded-md border-separate border-spacing-0;
 }
 
 table thead th {
-  @apply px-3 py-3 border dark:border-gray-600 text-left font-medium tracking-wider;
+  @apply px-3 py-3 dark:border-gray-600 text-left font-medium tracking-wider first:rounded-tl-md border-b-0 last:rounded-tr-md border only:rounded-t-md;
+}
+
+table tbody tr:last-child td {
+  @apply first:rounded-bl-md last:rounded-br-md border-b;
 }
 
 table tbody td {
-  @apply px-3 py-2 border dark:border-gray-600;
+  @apply px-3 py-2 border dark:border-gray-600 border-b-0;
+}
+
+table th:not(:first-child),
+table td:not(:first-child) {
+  @apply border-l-0;
 }
 
 .ct-series-a .ct-slice-donut {
@@ -202,4 +210,3 @@ table tbody td {
 .ct-label {
   @apply !text-gray-50 !fill-gray-50;
 }
-

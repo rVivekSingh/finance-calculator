@@ -1,5 +1,5 @@
 import LoanCalculator from "@/component/Calculators/LoanCalculator";
-import Layout from "@/component/Layout/Layout";
+import Layout from "@/component/Layout";
 import SidebarLayout from "@/component/Layout/SidebarLayout";
 
 import React from "react";
