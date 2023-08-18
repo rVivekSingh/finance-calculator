@@ -41,7 +41,7 @@ const Textarea = ({
       <div className="relative overflow-hidden rounded">
         <textarea
           value={value}
-          className={`input-field ${className || ""}`}
+          className={`input-field resize-none ${className || ""}`}
           style={inputStyle}
           onChange={onChange}
           required={required}
