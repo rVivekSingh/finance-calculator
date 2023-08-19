@@ -9,6 +9,13 @@ import { BiSun } from "react-icons/bi";
 
 export interface IHeaderProps {}
 
+export const navItems = [
+  { name: "Home", url: "/" },
+  { name: "About", url: "/about" },
+  { name: "Calculators", url: "/calculator" },
+  { name: "Contact", url: "/contact" },
+];
+
 export default function Header({}: IHeaderProps) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -23,12 +30,6 @@ export default function Header({}: IHeaderProps) {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
-  const navItems = [
-    { name: "Home", url: "/" },
-    { name: "About", url: "/about" },
-    { name: "Calculators", url: "/calculator/sip-calculator" },
-    { name: "Contact", url: "/contact" },
-  ];
   return (
     <header className="header">
       <Container>

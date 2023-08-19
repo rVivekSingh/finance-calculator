@@ -107,7 +107,7 @@ const about = () => {
                           href={developer.socialLinks.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-gray-700 lg:bg-gray-400 hover:bg-gray-700"
+                          className="bg-gray-700 lg:bg-gray-500 hover:bg-gray-700"
                         >
                           <FaGithub /> <span>Github</span>
                         </a>
