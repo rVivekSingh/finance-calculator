@@ -31,10 +31,10 @@ const FormSection = () => {
       </p>
       <div className="grid md:grid-cols-2 items-center gap-8">
         <div className="lg:pr-10">
-          <form autoComplete="off">
+          <form target="_blank" action="https://formsubmit.co/vrathoud8@gmail.com" autoComplete="off">
             <div>
               <FormInput
-                placeholder="Your Name"
+                placeholder="Name"
                 label="Full Name"
                 name="fullname"
                 className="bg-gray-200 dark:bg-slate-600"
@@ -45,7 +45,7 @@ const FormSection = () => {
             </div>
             <div>
               <FormInput
-                placeholder="Your Email"
+                placeholder="Email"
                 name="email"
                 label="Email"
                 className="bg-gray-200 dark:bg-slate-600"
@@ -67,7 +67,7 @@ const FormSection = () => {
             </div>
 
             <div className="mt-6 text-right">
-              <Button icon={<FaPaperPlane />}>Send Message</Button>
+              <Button type="submit" icon={<FaPaperPlane />}>Send Message</Button>
             </div>
           </form>
         </div>

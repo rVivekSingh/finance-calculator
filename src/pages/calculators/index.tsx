@@ -6,27 +6,42 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 const data = [
-  { name: "Personal Loan", color: "a", link: "/" },
-  { name: "SIP", color: "b", link: "/calculator/sip-calculator" },
+  { name: "SIP", color: "b", link: "/calculators/sip-calculator" },
   {
     name: "Lumpsum",
     color: "c",
-    link: "/calculator/lumpsum-calculator",
+    link: "/calculators/lumpsum-calculator",
   },
   {
     name: "Mutual Fund",
     color: "d",
-    link: "/calculator/mf-calculator",
+    link: "/calculators/mf-calculator",
   },
   {
     name: "PPF",
     color: "e",
-    link: "/calculator/ppf-calculator",
+    link: "/calculators/ppf-calculator",
   },
   {
     name: "FD",
-    color: "f",
-    link: "/calculator/fd-calculator",
+    color: "d",
+    link: "/calculators/fd-calculator",
+  },
+  {
+    name: "Personal Loan",
+    color: "c",
+    link: "/calculators/personal-loan-emi-calculator",
+  },
+  {
+    name: "Home Loan EMI calculator",
+    color: "b",
+    link: "/calculators/home-loan-emi-calculator",
+  },
+  ,
+  {
+    name: "Car Loan EMI calculator",
+    color: "a",
+    link: "/calculators/home-loan-emi-calculator",
   },
 ];
 
