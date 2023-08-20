@@ -37,7 +37,6 @@ const data = [
     color: "b",
     link: "/calculators/home-loan-emi-calculator",
   },
-  ,
   {
     name: "Car Loan EMI calculator",
     color: "a",
