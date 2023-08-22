@@ -31,7 +31,7 @@ const FormSection = () => {
       </p>
       <div className="grid md:grid-cols-2 items-center gap-8">
         <div className="lg:pr-10">
-          <form target="_blank" action="https://formsubmit.co/vrathoud8@gmail.com" autoComplete="off">
+          <form target="_blank" action="https://formsubmit.co/vrathoud8@gmail.com" autoComplete="off" method="POST" >
             <div>
               <FormInput
                 placeholder="Name"
