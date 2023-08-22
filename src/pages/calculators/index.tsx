@@ -6,40 +6,40 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 const data = [
-  { name: "SIP", color: "b", link: "/calculators/sip-calculator" },
+  { name: "SIP", color: "a", link: "/calculators/sip-calculator" },
   {
     name: "Lumpsum",
-    color: "c",
+    color: "b",
     link: "/calculators/lumpsum-calculator",
   },
   {
     name: "Mutual Fund",
-    color: "d",
+    color: "c",
     link: "/calculators/mf-calculator",
   },
   {
     name: "PPF",
-    color: "e",
+    color: "d",
     link: "/calculators/ppf-calculator",
   },
   {
     name: "FD",
-    color: "d",
+    color: "e",
     link: "/calculators/fd-calculator",
   },
   {
     name: "Personal Loan",
-    color: "c",
+    color: "f",
     link: "/calculators/personal-loan-emi-calculator",
   },
   {
     name: "Home Loan EMI calculator",
-    color: "b",
+    color: "g",
     link: "/calculators/home-loan-emi-calculator",
   },
   {
     name: "Car Loan EMI calculator",
-    color: "a",
+    color: "h",
     link: "/calculators/home-loan-emi-calculator",
   },
 ];
