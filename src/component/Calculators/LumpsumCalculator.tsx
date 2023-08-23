@@ -36,13 +36,13 @@ const LumpsumCalculator = () => {
 
       setTotalInterest(Math.round(lumpsumAmount - totalInvestment));
       setTotalValue(lumpsumAmount);
-      updateChart(totalInvestment, Math.ceil(lumpsumAmount));
+      updateChart(totalInvestment, Math.floor(lumpsumAmount));
     }
   };
 
   const updateChart = (principal: number, interest: number) => {
     new PieChart(
-      "#chart",
+      "#lumpsum-chart",
       {
         series: [principal, interest],
       },
@@ -163,7 +163,7 @@ const LumpsumCalculator = () => {
           <CardChart>
             <h2 className="mb-10 text-2xl font-semibold">Chart</h2>
             <div
-              id="chart"
+              id="lumpsum-chart"
               className="w-60 h-60 mx-auto rounded-full font-black text-white"
             ></div>
             <div className="mt-10 lg:pl-5">

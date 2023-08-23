@@ -11,15 +11,4 @@ export function calculateSukanyaSamriddhiMaturityAmount(
     return parseFloat(maturityAmount.toFixed(2));
   }
 
-const initialDeposit = 50000; // Replace with your desired initial deposit amount
-const annualInterestRate = 7.6; // 7.6% annual interest rate
-const investmentPeriod = 15; // 15 years investment period
-
-const maturityAmount = calculateSukanyaSamriddhiMaturityAmount(
-  initialDeposit,
-  annualInterestRate,
-  investmentPeriod
-);
-console.log(`Maturity Amount: ${maturityAmount}`);
-
   

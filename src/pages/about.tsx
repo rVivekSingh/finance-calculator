@@ -1,6 +1,6 @@
-import BannerSection from "@/component/About/BannerSection";
+import { BannerImage } from "@/component/BannerImage";
 import Container from "@/component/Container";
-import Layout from "@/component/Layout/Layout";
+import Layout from "@/component/Layout";
 import Section from "@/component/Section";
 import Image from "next/image";
 import React from "react";
@@ -35,15 +35,17 @@ const developers = [
 
 const about = () => {
   return (
-    <Layout seo={{ title: "EmiNinja | Emi Calculators", pathname: "/about" }}>
+    <Layout seo={{ title: "About | EmiNinja | Emi Calculators", pathname: "/about" }}>
       <Container>
-        <BannerSection />
+        <BannerImage className="mt-8 lg:mt-12" imageUrl="/images/banner-1.png" />
 
         <Section title="About Us">
-          <div className="py-8">
+          <div>
             <p>
-            We are a team of highly motivated professionals, driven by the enthusiasm to help you in making wise financial decisions. 
-            We&apos;re a team of super motivated folks, fueled by our passion to help you make smart financial choices.
+              We are a team of highly motivated professionals, driven by the
+              enthusiasm to help you in making wise financial decisions.
+              We&apos;re a team of super motivated folks, fueled by our passion
+              to help you make smart financial choices.
             </p>
             <p>
               Our user-friendly loan calculator instrument has been crafted to
@@ -71,7 +73,7 @@ const about = () => {
             </p>
 
             <div className="mt-8 pt-7">
-              <h2 className="text-2xl font-semibold mb-4">
+              <h2 className="text-2xl font-medium mb-4">
                 Meet the Developers
               </h2>
 
@@ -80,7 +82,7 @@ const about = () => {
                 {developers.map((developer, index) => (
                   <div
                     key={index}
-                    className="bg-white rounded-lg shadow-md flex max-xl:flex-col overflow-hidden"
+                    className="bg-white rounded-lg p-2 border flex max-lg:flex-col overflow-hidden"
                   >
                     <div className="dev-image-clip">
                       <Image
@@ -91,7 +93,7 @@ const about = () => {
                       />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-lg font-medium dark:text-gray-800">
+                      <h3 className="text-lg m-0 font-medium dark:text-gray-800">
                         {developer.name} {developer.icon}
                       </h3>
                       <p className="text-sm dark:text-gray-400">
@@ -105,7 +107,7 @@ const about = () => {
                           href={developer.socialLinks.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-gray-700 lg:bg-gray-400 hover:bg-gray-700"
+                          className="bg-gray-700 lg:bg-gray-500 hover:bg-gray-700"
                         >
                           <FaGithub /> <span>Github</span>
                         </a>

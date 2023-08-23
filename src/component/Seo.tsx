@@ -36,15 +36,15 @@ function Seo({ title, description, pathname, hideExtraTitle }: ISeoProps) {
             "Welcome to EmiNinja.com - Unlock Your Financial Potential with our Comprehensive Suite of Financial Calculators",
           site_name: "EmiNinja.com",
           type: "website",
-          images: [
-            {
-              alt: "School Image",
-              width: 284,
-              height: 177,
-              url: "https://www.schooldetails.org/school_blurred.jpg",
-              type: "image/jpeg",
-            },
-          ],
+          // images: [
+          //   {
+          //     alt: "Website Image",
+          //     width: 284,
+          //     height: 177,
+          //     url: "https://www.emininja.com/calculator_blurred.jpg",
+          //     type: "image/jpeg",
+          //   },
+          // ],
         }}
       />
     </>

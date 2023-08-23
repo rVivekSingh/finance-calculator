@@ -9,26 +9,27 @@ import { BiSun } from "react-icons/bi";
 
 export interface IHeaderProps {}
 
+export const navItems = [
+  { name: "Home", url: "/" },
+  { name: "About", url: "/about" },
+  { name: "Calculators", url: "/calculators" },
+  { name: "Contact", url: "/contact" },
+];
+
 export default function Header({}: IHeaderProps) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   const { theme, setTheme } = useTheme();
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
   const handleMenuToggle = () => {
     setIsOpen(!isOpen);
   };
 
-  const navItems = [
-    { name: "Home", url: "/" },
-    { name: "About", url: "/about" },
-    { name: "Calculators", url: "/calculator/sip-calculator" },
-    { name: "Contact", url: "/contact" },
-  ];
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
     <header className="header">
       <Container>
@@ -47,28 +48,37 @@ export default function Header({}: IHeaderProps) {
             </span>
           </Link>
 
-          {/* Toggle Button */}
-          <button
-            type="button"
-            className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-expanded="false"
-            onClick={handleMenuToggle}
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-6 h-6"
-              aria-hidden="true"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
+          <div className="flex">
+            <div
+              className="md:hidden max-md:py-3 items-center text-gray-200 text-lg lg:text-xl"
+              onClick={toggleTheme}
             >
-              <path
-                fillRule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </button>
+              {theme === "light" ? <FaMoon /> : <BiSun />}
+            </div>
+
+            {/* Toggle Button */}
+            <button
+              type="button"
+              className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-expanded="false"
+              onClick={handleMenuToggle}
+            >
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
 
           {/* Menu */}
           <div
@@ -82,6 +92,7 @@ export default function Header({}: IHeaderProps) {
                   <li
                     key={name}
                     className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3 text-sm"
+                    onClick={handleMenuToggle}
                   >
                     <Link
                       href={url}
@@ -99,7 +110,7 @@ export default function Header({}: IHeaderProps) {
               })}
 
               <li
-                className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3 items-center gap-3 text-gray-200 text-lg lg:text-xl"
+                className="hidden md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3 items-center gap-3 text-gray-200 text-lg lg:text-xl"
                 onClick={toggleTheme}
               >
                 {theme === "light" ? <FaMoon /> : <BiSun />}

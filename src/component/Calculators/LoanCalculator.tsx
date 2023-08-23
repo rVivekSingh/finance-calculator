@@ -61,7 +61,7 @@ const LoanCalculator = () => {
   const resetStatus = !loanAmount || !interestRate || !tenure;
 
   return (
-    <Section title="Personal Loan Calculator">
+    <Section title="Loan EMI Calculator">
       <Card>
         <CardBody>
           <CardForm>
