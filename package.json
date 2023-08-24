@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "build-dev": "copy .env.prod .env.local && next dev",
-    "build-prod": "copy .env.prod .env.local && next build"
+    "build-prod": "cp .env.prod .env.local && next build"
   },
   "dependencies": {
     "@types/aos": "3.0.4",
