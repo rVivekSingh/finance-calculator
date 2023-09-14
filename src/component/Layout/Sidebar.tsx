@@ -28,7 +28,7 @@ const Sidebar = () => {
       text: "Car Loan EMI Calculator",
       url: "/calculators/car-loan-emi-calculator",
     },
-    //{ text: "RD Calculator", url: "/calculators/rd-calculator" },
+    { text: "NPS Calculator", url: "/calculators/nps-calculator" },
    // { text: "SWP Calculator", url: "/calculators/swp-calculator" },
   ];
 
