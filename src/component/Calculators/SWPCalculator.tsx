@@ -91,7 +91,7 @@ const SWPCalculator = () => {
                   labelProps={{ htmlFor: "time period" }}
                   value={tenure !== undefined ? tenure : ""}
                   id="tenure"
-                  unit="Yr"
+                  unit="Yrs"
                   placeholder="10"
                   onChange={(e) =>
                     setInterestRate(parseInt(e.target.value, 10))

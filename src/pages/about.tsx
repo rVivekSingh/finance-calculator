@@ -21,7 +21,7 @@ const developers = [
   },
   {
     name: "Vivek Singh Rathor",
-    role: "Backend Developer",
+    role: "Engineer by Accident",
     image: "/images/dev-2.png",
     icon: "😎",
     description:
