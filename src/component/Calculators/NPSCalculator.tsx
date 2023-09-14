@@ -178,7 +178,7 @@ const NPSCalculator = () => {
           Individuals residing in the country, between the ages of 18 and 60, 
           are eligible to establish a pension corpus. This corpus serves as both an 
           investment and an asset for individuals post-retirement. Given the limited 
-          job security prevalent in India's private sector, a National Pension Scheme 
+          job security prevalent in India&apos;s private sector, a National Pension Scheme 
           calculator becomes imperative for individuals seeking stability. It is worth
            noting that pension schemes in the country are not subject to market fluctuations 
            and offer reliable returns.
@@ -201,9 +201,9 @@ const NPSCalculator = () => {
         employs the principle of compounding interest in order to compute investment earnings.
         </p>
         <p className="highlight">
-          /** A = P (1 + r/n) ^ nt */
           <code>
-            A = P (1 + r/n) 
+            A = P 
+              ( 1 + r/n)
               <sup>nt</sup>
           </code>
         </p>
