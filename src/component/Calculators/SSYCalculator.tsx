@@ -98,7 +98,7 @@ console.log("finalValye", finalValye);
                   labelProps={{ htmlFor: "age" }}
                   value={girlsAge !== undefined ? girlsAge : ""}
                   id="age"
-                  unit="Yr"
+                  unit="Yrs"
                   placeholder="5"
                   onChange={(e) => setGirlsAge(parseFloat(e.target.value))}
                   required
@@ -110,7 +110,7 @@ console.log("finalValye", finalValye);
                   labelProps={{ htmlFor: "start year" }}
                   value={startYear !== undefined ? startYear : ""}
                   id="startYear"
-                  unit="Yr"
+                  unit="Yrs"
                   placeholder="2023"
                   onChange={(e) => setStartYear(parseInt(e.target.value, 10))}
                   required

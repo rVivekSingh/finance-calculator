@@ -112,7 +112,7 @@ const SIPCalculator = () => {
                   labelProps={{ htmlFor: "rate of interest" }}
                   value={tenure !== undefined ? tenure : ""}
                   id="tenure"
-                  unit="Yr"
+                  unit="Yrs"
                   placeholder="20"
                   onChange={(e) => setTenure(parseInt(e.target.value, 10))}
                   required

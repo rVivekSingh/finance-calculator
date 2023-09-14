@@ -35,7 +35,7 @@ const NPSCalculator = () => {
             setMaturityValue(npsData.maturityValue);
             setTotalInterest(npsData.totalInterest);
             setAnnuityInvestment(npsData.annuityInvestment);
-            updateChart([totalInvestment, maturityValue, totalInterest, annuityInvestment])
+            //updateChart([totalInvestment, maturityValue, totalInterest, annuityInvestment])
         }
     }
   };
@@ -43,7 +43,7 @@ const NPSCalculator = () => {
   const updateChart = (data: number[]) => {
     
     new PieChart(
-      "#ppf-chart",
+      "#nps-chart",
       {
         series: data,
       },
@@ -92,7 +92,7 @@ const NPSCalculator = () => {
                   id="interest"
                   unit="%"
                   placeholder="9"
-                  onChange={(e) => setCurrentAge(parseInt(e.target.value))}
+                  onChange={(e) => setInterestRate(parseInt(e.target.value))}
                   required
                 />
                 <FormInput
@@ -101,9 +101,9 @@ const NPSCalculator = () => {
                   labelProps={{ htmlFor: "age" }}
                   value={currentAge !== undefined ? currentAge : ""}
                   id="age"
-                  unit="Yr"
+                  unit="Yrs"
                   placeholder="20"
-                  onChange={(e) => setInterestRate(parseFloat(e.target.value))}
+                  onChange={(e) => setCurrentAge(parseFloat(e.target.value))}
                   required
                 />
 
@@ -164,70 +164,47 @@ const NPSCalculator = () => {
             </CardResult>
           </CardForm>
 
-          {/* Graph */}
-          <CardChart>
-            <h2 className="mb-10 text-2xl font-semibold">Chart</h2>
-            <div
-              id="ppf-chart"
-              className="w-60 h-60 mx-auto rounded-full font-black text-white"
-            ></div>
-
-            <div className="mt-10 lg:pl-5">
-              {totalInterest && (
-                <>
-                  <Legend text="Invested amount" type="a" />
-                  <Legend text="Est. returns" type="b" />
-                  <Legend text="Total amount" type="c" />
-                </>
-              )}
-            </div>
-          </CardChart>
         </CardBody>
       </Card>
       <div className="pt-5">
         <p>
-          The initial step towards wealth management involves the accumulation
-          of savings. Numerous savings account options exist; however, it is
-          advisable to seek out those that offer significant returns without
-          risk. PPF accounts are one of the most prevalent options available.
-          PPF, which stands for Public Provident Fund, is a vehicle designed to
-          invest your valuable capital. For new employees or responsible parents
-          looking to save for the future, PPF is an ideal choice. Calculating
-          interest rates and returns for your PPF account can be challenging.
-          Fortunately, a PPF account calculator can simplify these complex
-          calculations.
+          The National Pension System, also known as NPS, is an initiative aimed at providing 
+          a certain level of financial stability to retired individuals in India. Formerly referred 
+          to as the National Pension Scheme, this program allows individuals who are 60 years of age or 
+          older to utilize the accumulated funds from their pension corpus. To determine the exact amount
+           of this accumulation, it is necessary to employ an NPS calculator.
         </p>
-        <h2>How can a PPF calculator help you?</h2>
         <p>
-          This financial instrument offers a comprehensive solution to address
-          all concerns related to the Public Provident Fund account. There are
-          certain stipulations that must be strictly adhered to when computing
-          the maturity amount after a stipulated period of time. It facilitates
-          the monitoring of capital growth. Those who possess a PPF savings
-          account are well aware that interest rates are subject to monthly
-          revisions. In the present day and age, keeping tabs on the constantly
-          fluctuating interest rates has become relatively easier. However, with
-          the advent of the public provident fund calculator, account holders
-          find it simpler to determine the monthly alterations made to the rate
-          of interest. In the market, there are several user-friendly PPF
-          calculators available, and for selecting a reliable one, EmiNinja is
-          undoubtedly the optimal choice.
+          Individuals residing in the country, between the ages of 18 and 60, 
+          are eligible to establish a pension corpus. This corpus serves as both an 
+          investment and an asset for individuals post-retirement. Given the limited 
+          job security prevalent in India's private sector, a National Pension Scheme 
+          calculator becomes imperative for individuals seeking stability. It is worth
+           noting that pension schemes in the country are not subject to market fluctuations 
+           and offer reliable returns.
         </p>
-        <h2>Formula used for calculating PPF</h2>
+        <h2>The NPS pension calculator will provide assistance in the following ways.</h2>
+        <p>It will furnish you with the precise amount of funds you are entitled to receive in the future. 
+          It is important to note that the pension amount is an investment and not a burden. 
+          It is imperative to utilize an NPS calculator online to ascertain the total corpus.</p>
+        <p>In accordance with the prevailing legislation, it is not permissible for an individual 
+          to withdraw the entire post-retirement amount. Moreover, 40% of the total sum must be allocated 
+          to annuities. Additionally, the remaining 60% is subject to taxation. All of these detailed figures 
+          will be revealed once you commence utilizing our NPS scheme calculator.</p>
+        <p>The calculator is infallible. If you have ever attempted to manually calculate pension amounts, 
+          you can appreciate the difficulty of the task. Fortunately, our NPS calculator in India automates 
+          the entire process.</p>
+
+        <h2>Formula for calculating Pension amounts</h2>
         <p>
-          Emininja employs a comprehensive algorithm to calculate the sum of
-          money deposited, interest charges, and other related factors. The
-          formula in question is as follows -
+        The National Pension System (NPS), similar to all pension schemes globally, 
+        employs the principle of compounding interest in order to compute investment earnings.
         </p>
         <p className="highlight">
+          /** A = P (1 + r/n) ^ nt */
           <code>
-            F = P &#123;({" "}
-            <sup>
-              {"("}
-              (1+i)
-              <sup>n</sup> - 1{")"}
-            </sup>{" "}
-            / i) &#125;
+            A = P(1+r/n)
+              <sup>nt</sup>
           </code>
         </p>
 
@@ -245,23 +222,34 @@ const NPSCalculator = () => {
           </thead>
           <tbody>
             <tr>
-              <td>I</td>
-              <td>Rate of interest</td>
-            </tr>
-            <tr>
               <td>P</td>
-              <td>Annual instalments</td>
+              <td>Principal sum</td>
             </tr>
             <tr>
-              <td>F</td>
-              <td>Maturity of PPF</td>
+              <td>r</td>
+              <td>Rate of interest per annum</td>
             </tr>
             <tr>
-              <td>N</td>
-              <td>Total number of years</td>
+              <td>n</td>
+              <td>NUmber of times interest compounds</td>
+            </tr>
+            <tr>
+              <td>t</td>
+              <td>Total tenure</td>
             </tr>
           </tbody>
         </table>
+        <p>The importance of pension aggregation is exemplified in this scenario.</p>
+        <p>
+          In the event that an individual is currently 34 years of age, with a monthly contribution of Rs 3000, 
+          it will be necessary to contribute to the pension account for an additional 26 years. Assuming an annual 
+          interest rate of 10%, the National Pension Plan calculator provides the following details:
+        </p>
+        <p>
+          Total Principal invested = Rs 9.36 Lakh
+
+          Expected Maturity Sum = 44.35 Lakh
+        </p>
       </div>
     </Section>
   );
