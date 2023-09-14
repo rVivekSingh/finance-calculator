@@ -203,7 +203,7 @@ const NPSCalculator = () => {
         <p className="highlight">
           /** A = P (1 + r/n) ^ nt */
           <code>
-            A = P(1+r/n)
+            A = P (1 + r/n) 
               <sup>nt</sup>
           </code>
         </p>
