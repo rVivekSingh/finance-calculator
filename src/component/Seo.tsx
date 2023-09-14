@@ -9,6 +9,7 @@ export interface ISeoProps {
 
 const INDEXING_ENABLED = process.env.NEXT_PUBLIC_INDEXING_ENABLED;
 let IndexTags = { noindex: true, nofollow: true };
+
 if (INDEXING_ENABLED === "false") {
   IndexTags = { noindex: false, nofollow: false };
 }
