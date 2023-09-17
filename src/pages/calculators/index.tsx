@@ -33,14 +33,19 @@ const data = [
     link: "/calculators/personal-loan-emi-calculator",
   },
   {
-    name: "Home Loan EMI calculator",
+    name: "Home Loan EMI",
     color: "g",
     link: "/calculators/home-loan-emi-calculator",
   },
   {
-    name: "Car Loan EMI calculator",
+    name: "Car Loan EMI",
     color: "h",
     link: "/calculators/home-loan-emi-calculator",
+  },
+  {
+    name: "NPS",
+    color: "i",
+    link: "/calculators/nps-calculator",
   },
 ];
 

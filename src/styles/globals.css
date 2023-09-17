@@ -13,7 +13,7 @@
 }
 
 body {
-  @apply max-lg:text-sm bg-white dark:bg-zinc-950 z-10 font-Ubuntu text-gray-900 dark:text-gray-200;
+  @apply max-lg:text-sm bg-white dark:bg-zinc-950 z-10 font-Ubuntu text-gray-900 dark:text-gray-200 transition-all duration-200;
 }
 
 h1,
@@ -63,10 +63,45 @@ main {
   @apply flex sticky top-0 z-50 border-b border-gray-700 bg-gray-900;
 }
 
+/* Navbar Collapse */
 .nav-collapse {
-  @apply w-full transition md:w-auto max-md:w-full max-md:absolute max-md:left-0 max-md:top-[80px] z-20 max-md:bg-slate-900 max-md:border-t duration-200 origin-top max-md:border-t-gray-700 md:flex-row;
+  @apply transition-all duration-500 ease-in-out z-20 max-md:fixed max-md:inset-0 max-md:bg-zinc-900/80 backdrop-blur-lg max-md:pt-16 max-md:opacity-0 max-md:invisible;
 }
 
+.nav-collapse.active {
+  @apply opacity-100 visible transition-all duration-100;
+}
+
+.nav-collapse ul {
+  @apply flex max-md:flex-col md:gap-5 lg:items-center;
+}
+
+.nav-collapse ul li.nav-item {
+  @apply text-sm max-md:text-lg max-md:flex max-md:px-5 max-md:py-3 transition max-md:-translate-x-full;
+}
+
+.nav-collapse.active ul li.nav-item {
+  @apply translate-x-0 transition;
+}
+
+.nav-collapse ul li.nav-theme-icon {
+  @apply !text-xl max-md:mt-10 max-md:px-5 duration-1000 transition-opacity max-md:opacity-0 text-gray-200;
+}
+
+.nav-collapse.active ul li.nav-theme-icon {
+  @apply opacity-100;
+}
+
+.nav-collapse ul li a {
+  @apply flex w-full hover:text-blue-500;
+}
+
+/* Nav toggle button */
+.nav-toggle-btn {
+  @apply inline-flex z-50 items-center p-2 ml-3 text-sm text-slate-100 rounded-lg md:hidden focus:outline-none;
+}
+
+/* Sidebar */
 .sidebar {
   @apply sticky h-max top-32 w-full md:w-[280px] lg:w-[350px] mt-10 md:mt-[91px] lg:mt-[125px] flex flex-col gap-8;
 }
