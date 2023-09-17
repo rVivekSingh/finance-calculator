@@ -4,15 +4,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Container from "../Container";
-import { FaMoon } from "react-icons/fa";
+import { FaBars, FaMoon, FaTimes } from "react-icons/fa";
 import { BiSun } from "react-icons/bi";
 
 export interface IHeaderProps {}
 
 export const navItems = [
   { name: "Home", url: "/" },
-  { name: "About", url: "/about" },
   { name: "Calculators", url: "/calculators" },
+  { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ];
 
@@ -48,58 +48,32 @@ export default function Header({}: IHeaderProps) {
             </span>
           </Link>
 
-          <div className="flex">
-            <div
-              className="md:hidden max-md:py-3 items-center text-gray-200 text-lg lg:text-xl"
-              onClick={toggleTheme}
-            >
-              {theme === "light" ? <FaMoon /> : <BiSun />}
-            </div>
-
-            {/* Toggle Button */}
-            <button
-              type="button"
-              className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-expanded="false"
-              onClick={handleMenuToggle}
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
+          {/* Toggle Button */}
+          <div className="nav-toggle-btn">
+            <button className="text-lg" onClick={handleMenuToggle}>
+              {isOpen ? <FaTimes /> : <FaBars />}
             </button>
           </div>
 
           {/* Menu */}
-          <div
-            className={`nav-collapse ${
-              isOpen ? "max-md:scale-y-100" : "max-md:scale-y-0"
-            }`}
-          >
-            <ul className="flex max-md:flex-col md:gap-5 lg:items-center">
-              {navItems.map(({ name, url }) => {
+          <div className={`nav-collapse ${isOpen ? "active touch-none" : ""}`}>
+            <ul>
+              {navItems.map(({ name, url }, i) => {
                 return (
                   <li
                     key={name}
-                    className="max-md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3 text-sm"
+                    className="nav-item"
                     onClick={handleMenuToggle}
+                    style={{
+                      transitionDuration: `${(i + 1) * 0.2}s`,
+                    }}
                   >
                     <Link
                       href={url}
-                      className={`flex w-full hover:text-blue-500 ${
+                      className={`${
                         router.asPath === url
                           ? "text-blue-500"
-                          : " text-gray-200"
+                          : "text-gray-200"
                       } `}
                       aria-current="page"
                     >
@@ -109,14 +83,8 @@ export default function Header({}: IHeaderProps) {
                 );
               })}
 
-              <li
-                className="hidden md:flex max-md:border-b max-md:px-5 max-md:border-gray-700 max-md:py-3 items-center gap-3 text-gray-200 text-lg lg:text-xl"
-                onClick={toggleTheme}
-              >
+              <li className={`nav-theme-icon`} onClick={toggleTheme}>
                 {theme === "light" ? <FaMoon /> : <BiSun />}
-                <span className="md:hidden">
-                  {theme === "light" ? "Dark" : "Light"}
-                </span>
               </li>
             </ul>
           </div>
