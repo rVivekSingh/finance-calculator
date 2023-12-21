@@ -8,6 +8,7 @@ import { Card, CardBody, CardChart, CardForm, CardResult } from "../Card";
 import FormInput from "../FormInput";
 import Section from "../Section";
 import Legend from "../Legend";
+import Link from "next/link";
 
 const LoanCalculator = () => {
   const [loanAmount, setLoanAmount] = useState<number | undefined>(1000000);
@@ -178,18 +179,21 @@ const LoanCalculator = () => {
       </Card>
 
       <div className="pt-5">
-        <h2 >Welcome to eMininja Financial Calculators!</h2>
+        <h2>Welcome to eMininja Financial Calculators!</h2>
         <p>
           Welcome to EmiNinja Financial Calculators! Empower your financial
           decisions with our suite of easy-to-use and accurate financial
           calculators. Whether you&apos;re planning to take a loan, invest in
           your future, or analyze your savings, our calculators are here to help
-          you make informed choices.  
-          <a href="/calculators">
+          you make informed choices.
+          <Link
+            href="/calculators"
+            className="text-gray-200 hover:text-blue-500"
+          >
             <span className="self-center text-blue-400">
               &nbsp; &nbsp; Calculators
             </span>
-          </a>
+          </Link>
         </p>
 
         <h2>Comprehensive Loan Calculators</h2>
@@ -211,12 +215,15 @@ const LoanCalculator = () => {
           Achieving your financial goals starts with a well-structured savings
           plan. Our SIP (Systematic Investment Plan) calculator assists you in
           understanding the power of regular savings and visualizing the growth
-          over time. 
-          <a href="/calculators/sip-calculator">
+          over time.
+          <Link
+           href="/calculators/sip-calculator"
+            className="hover:text-blue-500"
+          >
             <span className="self-center text-blue-400">
               &nbsp; &nbsp; SIP Calculator
             </span>
-          </a>
+          </Link>
         </p>
 
         <h2>User-Friendly Interface</h2>
