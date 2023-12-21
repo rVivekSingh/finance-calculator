@@ -17,6 +17,7 @@ function Footer({}: Props) {
             <div className="col-span-2">
               <Link href="/" className="flex items-center">
                 <Image
+                  title="hero-logo"
                   src="/images/header-logo.png"
                   className="h-8 mr-3 object-contain"
                   alt="Emi Ninja"

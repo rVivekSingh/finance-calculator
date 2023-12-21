@@ -61,14 +61,14 @@ const LoanCalculator = () => {
   const resetStatus = !loanAmount || !interestRate || !tenure;
 
   return (
-    <Section title="Loan EMI Calculator">
+    <Section title="Loans EMI Calculator">
       <Card>
         <CardBody>
           <CardForm>
             <form autoComplete="off">
               <div>
                 <FormInput
-                  label="Principal Amount"
+                  label="Loan Amount"
                   type="number"
                   labelProps={{ htmlFor: "principal amount" }}
                   value={loanAmount !== undefined ? loanAmount : ""}
@@ -80,7 +80,7 @@ const LoanCalculator = () => {
                 />
 
                 <FormInput
-                  label="Rate of Interest"
+                  label="Interest rate"
                   type="number"
                   labelProps={{ htmlFor: "interest" }}
                   value={interestRate !== undefined ? interestRate : ""}
@@ -92,7 +92,7 @@ const LoanCalculator = () => {
                 />
 
                 <FormInput
-                  label="Investment Time"
+                  label="Loan tenure"
                   optional="(in years)"
                   type="number"
                   labelProps={{ htmlFor: "rate of interest" }}
@@ -184,7 +184,12 @@ const LoanCalculator = () => {
           decisions with our suite of easy-to-use and accurate financial
           calculators. Whether you&apos;re planning to take a loan, invest in
           your future, or analyze your savings, our calculators are here to help
-          you make informed choices.
+          you make informed choices.  
+          <a href="/calculators">
+            <span className="self-center text-blue-400">
+              &nbsp; &nbsp; Calculators
+            </span>
+          </a>
         </p>
 
         <h2>Comprehensive Loan Calculators</h2>
@@ -206,7 +211,12 @@ const LoanCalculator = () => {
           Achieving your financial goals starts with a well-structured savings
           plan. Our SIP (Systematic Investment Plan) calculator assists you in
           understanding the power of regular savings and visualizing the growth
-          over time.
+          over time. 
+          <a href="/calculators/sip-calculator">
+            <span className="self-center text-blue-400">
+              &nbsp; &nbsp; SIP Calculator
+            </span>
+          </a>
         </p>
 
         <h2>User-Friendly Interface</h2>

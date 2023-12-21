@@ -37,6 +37,7 @@ export default function Header({}: IHeaderProps) {
           {/* Logo */}
           <Link href="/" className="flex items-center text-gray-200">
             <Image
+              title="hero-logo"
               src="/images/header-logo.png"
               className="h-8 mr-3 object-contain"
               alt="Emi Ninja"
