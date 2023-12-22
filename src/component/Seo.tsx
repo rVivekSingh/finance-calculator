@@ -18,7 +18,7 @@ function Seo({ title, description, pathname, hideExtraTitle }: ISeoProps) {
   const url = `https://emininja.com${pathname}`;
   const mainTitle = hideExtraTitle
     ? title
-    : `${title} | EmiNinja.com - Your Financial Calculators Hub | Comprehensive Suite of Financial Calculators`;
+    : `${title} | EmiNinja.com - Your Financial Calculators Hub`;
   return (
     <>
       <NextSeo
@@ -37,15 +37,15 @@ function Seo({ title, description, pathname, hideExtraTitle }: ISeoProps) {
             "Welcome to EmiNinja.com - Unlock Your Financial Potential with our Comprehensive Suite of Financial Calculators",
           site_name: "EmiNinja.com",
           type: "website",
-          // images: [
-          //   {
-          //     alt: "Website Image",
-          //     width: 284,
-          //     height: 177,
-          //     url: "https://www.emininja.com/calculator_blurred.jpg",
-          //     type: "image/jpeg",
-          //   },
-          // ],
+          images: [
+            {
+              alt: "Emininja Logo",
+              width: 284,
+              height: 177,
+              url: "https://www.emininja.com/images/header-logo.png",
+              type: "image/png",
+            },
+          ],
         }}
       />
     </>

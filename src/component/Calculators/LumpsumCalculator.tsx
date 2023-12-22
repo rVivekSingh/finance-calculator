@@ -65,7 +65,7 @@ const LumpsumCalculator = () => {
   const resetStatus = !totalInvestment || !interestRate || !tenure;
 
   return (
-    <Section title="Lumpsum Investment Calculator">
+    <Section title="Lumpsum Returns Calculator">
       <Card>
         <CardBody>
           <CardForm>
@@ -178,7 +178,7 @@ const LumpsumCalculator = () => {
         </CardBody>
       </Card>
       <div className="pt-5">
-        <h1>Lumpsum Calculator</h1>
+        <h1>Lumpsum Return Calculator</h1>
         <p>
           Investments made in Mutual Funds can be broadly categorized into two
           types - the first one being a Lumpsum Investment and the second one
@@ -196,7 +196,7 @@ const LumpsumCalculator = () => {
 
         <p>
           Mutual fund enthusiasts can avail the services of this calculator to
-          calculate the projected returns on their investments. However, prior
+          calculate the projected returns on their lump sum investment. However, prior
           to delving into the advantages that this calculator offers, it is
           essential to acquaint oneself with the various types of return on a
           lumpsum investment. The diverse types of return include Absolute
@@ -223,7 +223,7 @@ const LumpsumCalculator = () => {
           receive upon completion of their investment period.
         </p>
 
-        <h2>Formula to Calculate MF returns</h2>
+        <h2>Formula to Calculate lumpsum returns</h2>
 
         <p>
           The mechanism utilized by all lumpsum calculator mutual funds to
