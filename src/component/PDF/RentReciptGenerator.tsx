@@ -52,10 +52,24 @@ const RentReceiptGenerator = () => {
       asPdf.updateContainer(doc);
       const blob = await asPdf.toBlob();
       saveAs(blob, (simpleObject.name.replace(" ", "_").toLowerCase() + '.pdf'));
+
+      // Clear fields after submission
+      clearFields();
     }
 
     console.log("simpleObject", simpleObject);
   }
+
+  const clearFields = () => {
+    setName("");
+    setAddress("");
+    setOwner("");
+    setRent("");
+    setPan("");
+    setStartDate("");
+    setEndDate("");
+  }
+  const resetStatus = !name || !address || !owner || !rent || !pan || !startDate || !endDate;
 
   return (
     <Section title="Rent Recipt Generator">
@@ -146,6 +160,16 @@ const RentReceiptGenerator = () => {
                     onClick={handleSubmit}
                   >
                     Generate Recipt
+                  </Button>
+
+                  <Button
+                    className="w-full mt-3 lg:mt-6"
+                    variant="secondary"
+                    type="button"
+                    onClick={clearFields}
+                    disabled={resetStatus}
+                  >
+                    Clear Fields
                   </Button>
                 </div>
               </div>
