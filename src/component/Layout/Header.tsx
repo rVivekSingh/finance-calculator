@@ -12,6 +12,7 @@ export interface IHeaderProps {}
 export const navItems = [
   { name: "Home", url: "/" },
   { name: "Calculators", url: "/calculators" },
+  { name: "Rent Recipt Generator", url: "/rent-recipt-generator" },
   { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ];
